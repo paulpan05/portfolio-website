@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TopBar from './components/TopBar'
+import AboutMe from './components/AboutMe'
+import Experience from './components/Experience'
+import Projects from './components/Projects'
+import Coursework from './components/Coursework'
 
 const App: React.FC = () => {
+  const aboutMeRef = React.useRef(null);
+  const experienceRef = React.useRef(null);
+  const projectsRef = React.useRef(null);
+  const courseworkRef = React.useRef(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <TopBar
+        aboutMe={aboutMeRef} experience={experienceRef}
+        projects={projectsRef} coursework={courseworkRef}
+      />
+      <div ref={aboutMeRef}>
+        <AboutMe />
+      </div>
+      <div ref={experienceRef}>
+        <Experience />
+      </div>
+      <div ref={projectsRef}>
+        <Projects />
+      </div>
+      <div ref={courseworkRef}>
+        <Coursework />
+      </div>
+    </React.Fragment>
   );
 }
 
