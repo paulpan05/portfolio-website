@@ -10,14 +10,16 @@ const App: React.FC = () => {
   const experienceRef = React.useRef(null);
   const projectsRef = React.useRef(null);
   const courseworkRef = React.useRef(null);
+  const profileRef = React.useRef(null);
   return (
     <React.Fragment>
       <TopBar
         aboutMe={aboutMeRef} experience={experienceRef}
         projects={projectsRef} coursework={courseworkRef}
+        profile={profileRef}
       />
       <div ref={aboutMeRef}>
-        <AboutMe />
+        <AboutMe profileRef={profileRef}/>
       </div>
       <div ref={experienceRef}>
         <Experience />
