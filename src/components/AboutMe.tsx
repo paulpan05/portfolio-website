@@ -26,7 +26,11 @@ const useStyles = makeStyles(
   })
 );
 
-const AboutMe: React.FC = () => {
+type AboutMeProps = {
+  profileRef: React.RefObject<any>
+}
+
+const AboutMe: React.FC<AboutMeProps> = (props) => {
   const classes = useStyles();
   return(
     <header className={classes.masthead}>
@@ -37,7 +41,7 @@ const AboutMe: React.FC = () => {
         alignItems="center"
         className={classes.grid}
       >
-        <Avatar alt="Remy Sharp" src={profile} className={classes.avatar} />
+        <Avatar alt="Remy Sharp" src={profile} className={classes.avatar} ref={props.profileRef} />
       </Grid>
     </header>
   );
