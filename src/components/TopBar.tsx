@@ -4,14 +4,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import page from '../constants/page'
+import { page, topBarHeight } from '../constants/TopBarConstants'
 
 const scrollToComponent = (ref: React.RefObject<any>) => {
   window.scrollTo(0, ref.current.offsetTop);
 }
 
 const scrolledUp = (ref: React.RefObject<any>): boolean => {
-  return window.pageYOffset < ref.current.offsetTop - 48;
+  return window.pageYOffset < ref.current.offsetTop - topBarHeight;
 }
 
 type TopBarProps = {
@@ -30,8 +30,11 @@ const useStyles = makeStyles(
       WebkitBoxShadow: 'none',
       MozBoxShadow: 'none'
     },
-    tabs: {
-      height: '48'
+    tab: {
+      height: topBarHeight
+    },
+    tabLabel: {
+      fontSize: 'medium'
     }
   })
 );
@@ -68,12 +71,13 @@ const TopBar: React.FC<TopBarProps> = (props) => {
         centered={smallScreen}
         variant={smallScreen ? undefined : "scrollable"}
         scrollButtons={smallScreen ? undefined : "on"}
+        textColor="white"
       >
-        <Tab label="About me" className={classes.tabs} />
-        <Tab label="Experience" />
-        <Tab label="Projects" />
-        <Tab label="Coursework" />
-        <Tab label="Resume" />
+        <Tab label={<span className={classes.tabLabel}>About me</span>} className={classes.tab} />
+        <Tab label={<span className={classes.tabLabel}>Experience</span>} className={classes.tab} />
+        <Tab label={<span className={classes.tabLabel}>Projects</span>} className={classes.tab} />
+        <Tab label={<span className={classes.tabLabel}>Coursework</span>} className={classes.tab} />
+        <Tab label={<span className={classes.tabLabel}>Resume</span>} className={classes.tab} />
       </Tabs>
     </AppBar>
   );
