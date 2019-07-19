@@ -1,18 +1,33 @@
 import React from 'react';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import TopBar from './components/TopBar'
 import AboutMe from './components/AboutMe'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Coursework from './components/Coursework'
+import background from './images/background.jpg'
+
+const useStyles = makeStyles(
+  createStyles({
+    mainPage: {
+      background: `url(${background}) no-repeat center center fixed`,
+      WebkitBackgroundSize: "cover",
+      MozBackgroundSize: "cover",
+      backgroundSize: "cover",
+      OBackgroundSize: "cover"
+    }
+  })
+);
 
 const App: React.FC = () => {
+  const classes = useStyles();
   const aboutMeRef = React.useRef(null);
   const experienceRef = React.useRef(null);
   const projectsRef = React.useRef(null);
   const courseworkRef = React.useRef(null);
   const profileRef = React.useRef(null);
   return (
-    <React.Fragment>
+    <div className={classes.mainPage}>
       <TopBar
         aboutMe={aboutMeRef} experience={experienceRef}
         projects={projectsRef} coursework={courseworkRef}
@@ -30,7 +45,7 @@ const App: React.FC = () => {
       <div ref={courseworkRef}>
         <Coursework />
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 
