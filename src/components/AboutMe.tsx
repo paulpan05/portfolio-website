@@ -1,27 +1,24 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import profile from '../images/profile.jpg';
-import background from '../images/background.jpg';
-import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(
   createStyles({
     avatar: {
       width: 250,
-      height: 250
-    },
-    masthead: {
-      background: `url(${background}) no-repeat center center fixed`,
-      WebkitBackgroundSize: "cover",
-      MozBackgroundSize: "cover",
-      backgroundSize: "cover",
-      OBackgroundSize: "cover"
+      height: 250,
+      margin: 20
     },
     grid: {
-      height: '100vh',
+      height: '200vh',
       minHeight: '500px',
       verticalAlign: 'middle'
+    },
+    headerText: {
+      color: 'white'
     }
   })
 );
@@ -32,18 +29,19 @@ type AboutMeProps = {
 
 const AboutMe: React.FC<AboutMeProps> = (props) => {
   const classes = useStyles();
-  return(
-    <header className={classes.masthead}>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        className={classes.grid}
-      >
-        <Avatar alt="Remy Sharp" src={profile} className={classes.avatar} ref={props.profileRef} />
-      </Grid>
-    </header>
+  return (
+    <Grid
+      container
+      direction="column"
+      justify="center"
+      alignItems="center"
+      className={classes.grid}
+    >
+      <Avatar alt="Remy Sharp" src={profile} className={classes.avatar} ref={props.profileRef} />
+      <Typography variant="h2" className={classes.headerText}>
+        This is Paul
+        </Typography>
+    </Grid>
   );
 }
 
