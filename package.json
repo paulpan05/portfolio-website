@@ -1,5 +1,6 @@
 {
   "name": "portfolio-website",
+  "homepage": "https://paulpan05.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +10,7 @@
     "@types/node": "12.6.2",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
+    "gh-pages": "^2.0.1",
     "material-design-icons": "^3.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -17,6 +19,8 @@
     "typescript": "3.5.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
