@@ -4,7 +4,7 @@ import TopBar from './components/TopBar'
 import AboutMe from './components/AboutMe'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
-import Coursework from './components/Coursework'
+import Education from './components/Education';
 import background from './images/background.jpg'
 
 const useStyles = makeStyles(
@@ -24,13 +24,13 @@ const App: React.FC = () => {
   const aboutMeRef = React.useRef(null);
   const experienceRef = React.useRef(null);
   const projectsRef = React.useRef(null);
-  const courseworkRef = React.useRef(null);
+  const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
   return (
     <div className={classes.mainPage}>
       <TopBar
         aboutMe={aboutMeRef} experience={experienceRef}
-        projects={projectsRef} coursework={courseworkRef}
+        projects={projectsRef} education={educationRef}
         profile={profileRef}
       />
       <div ref={aboutMeRef}>
@@ -42,8 +42,8 @@ const App: React.FC = () => {
       <div ref={projectsRef}>
         <Projects />
       </div>
-      <div ref={courseworkRef}>
-        <Coursework />
+      <div ref={educationRef}>
+        <Education />
       </div>
     </div>
   );
