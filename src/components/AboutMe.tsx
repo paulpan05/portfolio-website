@@ -10,10 +10,10 @@ const useStyles = makeStyles(
     avatar: {
       width: 250,
       height: 250,
-      margin: 20
+      margin: 30
     },
     grid: {
-      height: '200vh',
+      height: '100vh',
       minHeight: '500px',
       verticalAlign: 'middle'
     },
@@ -24,7 +24,7 @@ const useStyles = makeStyles(
 );
 
 type AboutMeProps = {
-  profileRef: React.RefObject<any>
+  profileRef: React.RefObject<HTMLDivElement>
 }
 
 const AboutMe: React.FC<AboutMeProps> = (props) => {
@@ -38,9 +38,15 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       className={classes.grid}
     >
       <Avatar alt="Remy Sharp" src={profile} className={classes.avatar} ref={props.profileRef} />
-      <Typography variant="h2" className={classes.headerText}>
+      <Typography variant="h2" className={classes.headerText} gutterBottom>
         This is Paul
-        </Typography>
+      </Typography>
+      <Typography variant="h4" className={classes.headerText} gutterBottom>
+        I develop full-stack web and mobile applications.
+      </Typography>
+      <Typography variant="h6" className={classes.headerText} gutterBottom>
+        B.S. Computer Science, UC San Diego, Graduating June 2022
+      </Typography>
     </Grid>
   );
 }
