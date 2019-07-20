@@ -15,11 +15,11 @@ const scrolledUp = (ref: React.RefObject<any>): boolean => {
 }
 
 type TopBarProps = {
-  aboutMe: React.RefObject<any>
-  experience: React.RefObject<any>
-  projects: React.RefObject<any>
-  coursework: React.RefObject<any>
-  profile: React.RefObject<any>
+  aboutMe: React.RefObject<HTMLDivElement>
+  experience: React.RefObject<HTMLDivElement>
+  projects: React.RefObject<HTMLDivElement>
+  education: React.RefObject<HTMLDivElement>
+  profile: React.RefObject<HTMLDivElement>
 }
 
 const useStyles = makeStyles(
@@ -53,8 +53,8 @@ const TopBar: React.FC<TopBarProps> = (props) => {
       case page.Projects:
         scrollToComponent(props.projects);
         break;
-      case page.Coursework:
-        scrollToComponent(props.coursework);
+      case page.Education:
+        scrollToComponent(props.education);
         break;
       default:
     }
@@ -76,7 +76,7 @@ const TopBar: React.FC<TopBarProps> = (props) => {
         <Tab label={<span className={classes.tabLabel}>About me</span>} className={classes.tab} />
         <Tab label={<span className={classes.tabLabel}>Experience</span>} className={classes.tab} />
         <Tab label={<span className={classes.tabLabel}>Projects</span>} className={classes.tab} />
-        <Tab label={<span className={classes.tabLabel}>Coursework</span>} className={classes.tab} />
+        <Tab label={<span className={classes.tabLabel}>Education</span>} className={classes.tab} />
         <Tab label={<span className={classes.tabLabel}>Resume</span>} className={classes.tab} />
       </Tabs>
     </AppBar>
