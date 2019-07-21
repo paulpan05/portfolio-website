@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { topBarHeight } from '../constants/TopBarConstants';
 import profile from '../images/profile.jpg';
 import '../css/AboutMe.css'
 
@@ -11,15 +12,15 @@ const useStyles = makeStyles(
   createStyles({
     avatar: {
       width: 250,
-      height: 250,
-      margin: 30
+      height: 250
     },
     grid: {
       height: '100vh',
-      minHeight: '500px',
+      minHeight: '650px',
       verticalAlign: 'middle'
     },
     headerText: {
+      textAlign: 'center',
       color: 'white'
     }
   })
@@ -42,6 +43,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
           alt="Remy Sharp" 
           src={profile}
           className={classes.avatar}
+          style={{marginTop: topBarHeight}}
           ref={props.profileRef}
         />
     },
@@ -54,6 +56,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       <Typography
         variant="h2"
         className={classes.headerText}
+        style={{marginTop: '0.5em'}}
         gutterBottom
       >
         This is Paul
@@ -66,7 +69,8 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       classNames: "self-descr",
       element:
         <Typography
-          className={classes.introText}
+          variant="h4"
+          className={classes.headerText}
           gutterBottom
         >
           I develop full-stack web and mobile applications.
@@ -95,12 +99,13 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       alignItems="center"
       className={classes.grid}
     >
-      { transitionComponents.map((component) => 
+      { transitionComponents.map((component, key) => 
         <CSSTransition
           in={component.in}
           appear={component.appear}
           timeout={component.timeout}
           classNames={component.classNames}
+          key={key}
         >
           {component.element}
         </CSSTransition>
