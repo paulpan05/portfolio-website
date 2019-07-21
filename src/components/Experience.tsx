@@ -1,8 +1,7 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 
 const Experience: React.FC = () => {
-  return (<Typography>Experience</Typography>);
+  return (<div></div>);
 }
 
 export default Experience;
