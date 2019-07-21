@@ -1,0 +1,51 @@
+.avatar-appear,
+.self-intro-appear,
+.self-descr-appear,
+.self-edu-appear {
+  opacity: 0;
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+  -o-transform: translateX(50%);
+}
+
+.avatar-appear-active,
+.self-intro-appear-active,
+.self-descr-appear-active,
+.self-edu-appear-active {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  -o-transform: translateX(0);
+}
+
+.avatar-appear-active {
+  -webkit-transitioin: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
+  -o-transition: all 1s;
+}
+
+.self-intro-appear-active {
+  -webkit-transitioin: all 1s 0.5s;
+  -moz-transition: all 1s 0.5s;
+  transition: all 1s 0.5s;
+  -o-transition: all 1s 0.5s;
+}
+
+.self-descr-appear-active {
+  -webkit-transitioin: all 1s 1s;
+  -moz-transition: all 1s 1s;
+  transition: all 1s 1s;
+  -o-transition: all 1s 1s;
+}
+
+.self-edu-appear-active {
+  -webkit-transitioin: all 1s 1.5s;
+  -moz-transition: all 1s 1.5s;
+  transition: all 1s 1.5s;
+  -o-transition: all 1s 1.5s;
+}

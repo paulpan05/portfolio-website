@@ -3,20 +3,46 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import page from '../constants/page'
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { page, topBarHeight } from '../constants/TopBarConstants'
 
 const scrollToComponent = (ref: React.RefObject<any>) => {
   window.scrollTo(0, ref.current.offsetTop);
 }
 
-type TopBarProps = {
-  aboutMe: React.RefObject<any>
-  experience: React.RefObject<any>
-  projects: React.RefObject<any>
-  coursework: React.RefObject<any>
+const scrolledUp = (ref: React.RefObject<any>): boolean => {
+  return window.pageYOffset < ref.current.offsetTop - topBarHeight;
 }
 
-const TopBar: React.FC<TopBarProps> = (props: React.PropsWithChildren<TopBarProps>) => {
+type TopBarProps = {
+  aboutMe: React.RefObject<HTMLDivElement>
+  experience: React.RefObject<HTMLDivElement>
+  projects: React.RefObject<HTMLDivElement>
+  education: React.RefObject<HTMLDivElement>
+  profile: React.RefObject<HTMLDivElement>
+  contactMe: React.RefObject<HTMLDivElement>
+}
+
+const useStyles = makeStyles(
+  createStyles({
+    appBarTransparent: {
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+      WebkitBoxShadow: 'none',
+      MozBoxShadow: 'none'
+    },
+    tab: {
+      height: topBarHeight
+    },
+    tabLabel: {
+      fontSize: 'medium'
+    }
+  })
+);
+
+const TopBar: React.FC<TopBarProps> = (props) => {
+  const classes = useStyles();
+  const [barClass, setBarClass] = React.useState<string | undefined>(classes.appBarTransparent);
   const tabChange = (_event: React.ChangeEvent<{}>, value: number): void => {
     switch (value) {
       case page.AboutMe:
@@ -28,27 +54,40 @@ const TopBar: React.FC<TopBarProps> = (props: React.PropsWithChildren<TopBarProp
       case page.Projects:
         scrollToComponent(props.projects);
         break;
-      case page.Coursework:
-        scrollToComponent(props.coursework);
+      case page.Education:
+        scrollToComponent(props.education);
+        break;
+      case page.ContactMe:
+        scrollToComponent(props.contactMe);
         break;
       default:
     }
   }
-  const smallScreen: boolean = useMediaQuery('(min-width: 600px)');
+  window.onscroll = () => {
+    scrolledUp(props.profile) ? setBarClass(classes.appBarTransparent) : setBarClass(undefined);
+  }
+  const smallScreen: boolean = useMediaQuery('(min-width: 700px)');
+  const tabNames = [
+    "About Me",
+    "Experience",
+    "Projects",
+    "Education",
+    "Resume",
+    "Contact Me"
+  ];
   return (
-    <AppBar>
+    <AppBar className={barClass}>
       <Tabs
         value={false}
         onChange={tabChange}
         centered={smallScreen}
         variant={smallScreen ? undefined : "scrollable"}
         scrollButtons={smallScreen ? undefined : "on"}
+        textColor="white"
       >
-        <Tab label="About me" />
-        <Tab label="Experience" />
-        <Tab label="Projects" />
-        <Tab label="Coursework" />
-        <Tab label="Resume" />
+        { tabNames.map( (tabName, key) =>
+          <Tab label={<span className={classes.tabLabel}>{tabName}</span>} className={classes.tab} key={key} />
+        )}
       </Tabs>
     </AppBar>
   );

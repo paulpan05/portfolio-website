@@ -1,23 +1,45 @@
 import React from 'react';
-import TopBar from './components/TopBar'
-import AboutMe from './components/AboutMe'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Coursework from './components/Coursework'
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+import TopBar from './components/TopBar';
+import AboutMe from './components/AboutMe';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Education from './components/Education';
+import ContactMe from './components/ContactMe';
+import background from './images/background.jpg';
+
+const useStyles = makeStyles(
+  createStyles({
+    mainPage: {
+      background: `url(${background}) no-repeat center center fixed`,
+      WebkitBackgroundSize: "cover",
+      MozBackgroundSize: "cover",
+      backgroundSize: "cover",
+      OBackgroundSize: "cover"
+    }
+  })
+);
 
 const App: React.FC = () => {
+  const classes = useStyles();
   const aboutMeRef = React.useRef(null);
   const experienceRef = React.useRef(null);
   const projectsRef = React.useRef(null);
-  const courseworkRef = React.useRef(null);
+  const educationRef = React.useRef(null);
+  const profileRef = React.useRef(null);
+  const contactMeRef = React.useRef(null);
   return (
-    <React.Fragment>
+    <div className={classes.mainPage}>
       <TopBar
-        aboutMe={aboutMeRef} experience={experienceRef}
-        projects={projectsRef} coursework={courseworkRef}
+        aboutMe={aboutMeRef}
+        experience={experienceRef}
+        projects={projectsRef}
+        education={educationRef}
+        profile={profileRef}
+        contactMe={contactMeRef}
       />
       <div ref={aboutMeRef}>
-        <AboutMe />
+        <AboutMe profileRef={profileRef}/>
       </div>
       <div ref={experienceRef}>
         <Experience />
@@ -25,10 +47,13 @@ const App: React.FC = () => {
       <div ref={projectsRef}>
         <Projects />
       </div>
-      <div ref={courseworkRef}>
-        <Coursework />
+      <div ref={educationRef}>
+        <Education />
       </div>
-    </React.Fragment>
+      <div ref={contactMeRef}>
+        <ContactMe />
+      </div>
+    </div>
   );
 }
 
