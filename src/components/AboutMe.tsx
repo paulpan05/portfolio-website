@@ -66,8 +66,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       classNames: "self-descr",
       element:
         <Typography
-          variant="h4"
-          className={classes.headerText}
+          className={classes.introText}
           gutterBottom
         >
           I develop full-stack web and mobile applications.

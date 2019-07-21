@@ -1,11 +1,12 @@
 import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import TopBar from './components/TopBar'
-import AboutMe from './components/AboutMe'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
+import TopBar from './components/TopBar';
+import AboutMe from './components/AboutMe';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Education from './components/Education';
-import background from './images/background.jpg'
+import ContactMe from './components/ContactMe';
+import background from './images/background.jpg';
 
 const useStyles = makeStyles(
   createStyles({
@@ -26,12 +27,16 @@ const App: React.FC = () => {
   const projectsRef = React.useRef(null);
   const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
+  const contactMeRef = React.useRef(null);
   return (
     <div className={classes.mainPage}>
       <TopBar
-        aboutMe={aboutMeRef} experience={experienceRef}
-        projects={projectsRef} education={educationRef}
+        aboutMe={aboutMeRef}
+        experience={experienceRef}
+        projects={projectsRef}
+        education={educationRef}
         profile={profileRef}
+        contactMe={contactMeRef}
       />
       <div ref={aboutMeRef}>
         <AboutMe profileRef={profileRef}/>
@@ -44,6 +49,9 @@ const App: React.FC = () => {
       </div>
       <div ref={educationRef}>
         <Education />
+      </div>
+      <div ref={contactMeRef}>
+        <ContactMe />
       </div>
     </div>
   );
