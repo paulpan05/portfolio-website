@@ -20,6 +20,7 @@ type TopBarProps = {
   projects: React.RefObject<HTMLDivElement>
   education: React.RefObject<HTMLDivElement>
   profile: React.RefObject<HTMLDivElement>
+  contactMe: React.RefObject<HTMLDivElement>
 }
 
 const useStyles = makeStyles(
@@ -56,13 +57,24 @@ const TopBar: React.FC<TopBarProps> = (props) => {
       case page.Education:
         scrollToComponent(props.education);
         break;
+      case page.ContactMe:
+        scrollToComponent(props.contactMe);
+        break;
       default:
     }
   }
   window.onscroll = () => {
     scrolledUp(props.profile) ? setBarClass(classes.appBarTransparent) : setBarClass(undefined);
   }
-  const smallScreen: boolean = useMediaQuery('(min-width: 600px)');
+  const smallScreen: boolean = useMediaQuery('(min-width: 700px)');
+  const tabNames = [
+    "About Me",
+    "Experience",
+    "Projects",
+    "Education",
+    "Resume",
+    "Contact Me"
+  ];
   return (
     <AppBar className={barClass}>
       <Tabs
@@ -73,11 +85,9 @@ const TopBar: React.FC<TopBarProps> = (props) => {
         scrollButtons={smallScreen ? undefined : "on"}
         textColor="white"
       >
-        <Tab label={<span className={classes.tabLabel}>About me</span>} className={classes.tab} />
-        <Tab label={<span className={classes.tabLabel}>Experience</span>} className={classes.tab} />
-        <Tab label={<span className={classes.tabLabel}>Projects</span>} className={classes.tab} />
-        <Tab label={<span className={classes.tabLabel}>Education</span>} className={classes.tab} />
-        <Tab label={<span className={classes.tabLabel}>Resume</span>} className={classes.tab} />
+        { tabNames.map( (tabName, key) =>
+          <Tab label={<span className={classes.tabLabel}>{tabName}</span>} className={classes.tab} key={key} />
+        )}
       </Tabs>
     </AppBar>
   );
