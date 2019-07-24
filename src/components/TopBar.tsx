@@ -7,7 +7,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { page, topBarHeight } from '../constants/TopBarConstants'
 
 const scrollToComponent = (ref: React.RefObject<any>) => {
-  window.scrollTo(0, ref.current.offsetTop);
+  window.scrollTo(0, ref.current.offsetTop - topBarHeight);
 }
 
 const scrolledUp = (ref: React.RefObject<any>): boolean => {

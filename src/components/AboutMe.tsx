@@ -15,9 +15,9 @@ const useStyles = makeStyles(
       height: 250
     },
     grid: {
-      height: '100vh',
-      minHeight: '650px',
-      verticalAlign: 'middle'
+      minHeight: window.innerHeight,
+      verticalAlign: 'middle',
+      overflow: 'hidden'
     },
     headerText: {
       textAlign: 'center',
@@ -43,7 +43,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
           alt="Remy Sharp" 
           src={profile}
           className={classes.avatar}
-          style={{marginTop: topBarHeight}}
+          style={{marginTop: topBarHeight + 1}}
           ref={props.profileRef}
         />
     },
@@ -85,7 +85,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
         <Typography
           variant="h6"
           className={classes.headerText}
-          gutterBottom
+          style={{marginBottom: topBarHeight + 1}}
         >
           B.S. Computer Science, UC San Diego, Graduating June 2022
         </Typography>
