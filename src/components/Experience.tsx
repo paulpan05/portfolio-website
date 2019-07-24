@@ -69,6 +69,7 @@ const Experience: React.FC = () => {
               companyRole={company.role}
               jobDescription={company.jobDescription}
               languagesAndFrameworks={company.languagesAndFrameworks}
+              key={key}
             />
           )}
         </Grid>
