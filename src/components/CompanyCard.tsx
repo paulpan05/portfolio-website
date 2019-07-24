@@ -35,7 +35,7 @@ type CompanyCardProps = {
 const CompanyCard: React.FC<CompanyCardProps> = (props) => {
   const classes = useStyles(props);
   return (
-    <Card className={[classes.card, 'flip-card'].join(' ')}>
+    <Card className={[classes.card, 'flip-card'].join(' ')} elevation={24}>
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
           <Grid
