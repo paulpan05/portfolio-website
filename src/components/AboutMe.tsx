@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { topBarHeight } from '../constants/TopBarConstants';
 import profile from '../images/profile.jpg';
-import '../css/AboutMe.css'
+import '../css/AboutMeTransitions.css'
 
 const useStyles = makeStyles(
   createStyles({

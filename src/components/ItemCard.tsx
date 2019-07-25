@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles, createStyles } from '@material-ui/styles';
-import '../css/Cards.css';
+import '../css/ItemCard.css';
 import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(
@@ -63,7 +63,7 @@ const CompanyCard: React.FC<ItemCardProps> = (props) => {
         </div>
         <div className='flip-card-back'>
           <CardContent>
-            <Typography variant='h5'>Hello World!onaoio pjwifjpoo gnsdfngp agjpwjpio ihepghepghu piupghuphup ugipoipodf sigohiodfsh gphsdpo fgopfiopgh posdhgopfhi dfioghspdg dsgHello World!onaoio pjwifjpoo gnsdfngp agjpwjpio ihepghepghu piupghuphup ugipoipodf sigohiodfsh gphsdpo fgopfiopgh posdhgopfhi dfioghspdg dsgHello World!onaoio pjwifjpoo gnsdfngp agjpwjpio ihepghepghu piupghuphup ugipoipodf sigohiodfsh gphsdpo fgopfiopgh posdhgopfhi dfioghspdg dsgHello World!onaoio pjwifjpoo gnsdfngp agjpwjpio ihepghepghu piupghuphup ugipoipodf sigohiodfsh gphsdpo fgopfiopgh posdhgopfhi dfioghspdg dsgHello World!onaoio pjwifjpoo gnsdfngp agjpwjpio ihepghepghu piupghuphup ugipoipodf sigohiodfsh gphsdpo fgopfiopgh posdhgopfhi dfioghspdg dsgHello World!onaoio pjwifjpoo gnsdfngp agjpwjpio ihepghepghu piupghuphup ugipoipodf sigohiodfsh gphsdpo fgopfiopgh posdhgopfhi dfioghspdg dsgHello World!onaoio pjwifjpoo gnsdfngp agjpwjpio ihepghepghu piupghuphup ugipoipodf sigohiodfsh gphsdpo fgopfiopgh posdhgopfhi dfioghspdg dsg</Typography>
+            {props.fullDescription}
           </CardContent>
         </div>
       </div>
