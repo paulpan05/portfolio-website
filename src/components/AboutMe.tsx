@@ -16,7 +16,7 @@ const useStyles = makeStyles(
       height: 250
     },
     grid: {
-      minHeight: window.innerHeight,
+      minHeight: window.innerHeight || document.documentElement.clientHeight,
       verticalAlign: 'middle',
       overflow: 'hidden'
     },

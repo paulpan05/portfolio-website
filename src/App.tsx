@@ -7,6 +7,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import ContactMe from './components/ContactMe';
+import { watchForHover } from './constants/FunctionConstants';
 
 const useStyles = makeStyles(
   createStyles({
@@ -28,13 +29,7 @@ const App: React.FC = () => {
   const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
   const contactMeRef = React.useRef(null);
-  React.useEffect(() => {
-    document.addEventListener('touchstart', () => {});
-    return () => {
-      document.removeEventListener('touchstart', () => {});
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  watchForHover();
   return (
     <div className={classes.mainPage}>
       <TopBar
