@@ -26,8 +26,34 @@ const useStyles = makeStyles(
 
 const CompanyCard: React.FC<ItemCardProps> = (props) => {
   const classes = useStyles(props);
+  const [touchStartTime, setTouchStartTime] = React.useState(0);
+  const [cardCurrentClass, setCardCurrentClass] = React.useState('');
+  const handleTouchStart = () => {
+    setTouchStartTime(new Date().valueOf());
+  }
+  const handleTouchEnd = () => {
+    if (new Date().valueOf() - touchStartTime > 500) {
+      switch (cardCurrentClass) {
+        case '':
+          setCardCurrentClass('flip-card-touched');
+          break;
+        case 'flip-card-touched':
+          setCardCurrentClass('');
+          break;
+        default:
+      }
+    }
+  }
+  React.useEffect(() => {
+    document.addEventListener('touchstart', handleTouchStart);
+    document.addEventListener('touchend', handleTouchEnd);
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    }
+  }, []);
   return (
-    <Card className={[classes.itemCard, 'flip-card'].join(' ')} elevation={24}>
+    <Card className={[classes.itemCard, 'flip-card', cardCurrentClass].join(' ')} elevation={24}>
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
           <Grid

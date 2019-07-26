@@ -29,3 +29,13 @@ body.hasHover .flip-card:hover .flip-card-back {
   opacity: 1;
   transition: all 0.5s;
 }
+
+body.hasNoHover .flip-card-touched .flip-card-front {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+body.hasNoHover .flip-card-touched .flip-card-back {
+  opacity: 1;
+  transition: all 0.5s;
+}
