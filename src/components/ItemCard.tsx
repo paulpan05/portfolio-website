@@ -1,11 +1,12 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles, createStyles } from '@material-ui/styles';
-import '../css/ItemCard.css';
-import Grid from '@material-ui/core/Grid';
+import '../css/ItemCardTransitions.css';
+import { ItemCardProps } from '../constants/PropsConstants';
 
 const useStyles = makeStyles(
   createStyles({
@@ -22,15 +23,6 @@ const useStyles = makeStyles(
     }
   })
 );
-
-type ItemCardProps = {
-  image: string
-  imageWidth: string
-  itemName: string
-  description: string
-  fullDescription: JSX.Element
-  cardHeight: string
-}
 
 const CompanyCard: React.FC<ItemCardProps> = (props) => {
   const classes = useStyles(props);

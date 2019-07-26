@@ -1,10 +1,11 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import ItemCard from './ItemCard';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import '../css/CardSectionTransitions.css';
 import { isElementVisible } from '../constants/FunctionConstants';
+import { CardSectionProps } from '../constants/PropsConstants';
+import ItemCard from './ItemCard';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,22 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-type CardSectionProps = {
-  items:
-  {
-    image: string
-    imageWidth: string
-    itemName: string
-    description: string
-    fullDescription: JSX.Element
-  }[]
-  cardHeight: string
-  title: string
-  subtitle: string
-  backgroundColor: string
-  textColor: string
-}
-
 const CardSection: React.FC<CardSectionProps> = (props) => {
   const [cardClass, setCardClass] = React.useState('card-section-enter');
   const classes = useStyles(props);
@@ -57,14 +42,11 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
     }
   }
   React.useEffect(() => {
-    window.addEventListener('load', handleCardAnimate);
-    window.addEventListener('scroll', handleCardAnimate);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  React.useEffect(() => {
+    document.addEventListener('load', handleCardAnimate);
+    document.addEventListener('scroll', handleCardAnimate);
     return () => {
-      window.addEventListener('load', handleCardAnimate);
-      window.addEventListener('scroll', handleCardAnimate);
+      document.removeEventListener('load', handleCardAnimate);
+      document.removeEventListener('scroll', handleCardAnimate);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -4,9 +4,10 @@ import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { topBarHeight } from '../constants/TopBarConstants';
-import profile from '../images/profile.jpg';
 import '../css/AboutMeTransitions.css'
+import profile from '../images/profile.jpg';
+import { topBarHeight } from '../constants/TopBarConstants';
+import { AboutMeProps } from '../constants/PropsConstants';
 
 const useStyles = makeStyles(
   createStyles({
@@ -25,10 +26,6 @@ const useStyles = makeStyles(
     }
   })
 );
-
-type AboutMeProps = {
-  profileRef: React.RefObject<HTMLDivElement>
-};
 
 const AboutMe: React.FC<AboutMeProps> = (props) => {
   const classes = useStyles();

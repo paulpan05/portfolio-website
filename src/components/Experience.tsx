@@ -1,6 +1,6 @@
 import React from 'react';
-import lillyImage from '../images/Eli_Lilly_and_Company.svg';
 import Typography from '@material-ui/core/Typography';
+import lillyImage from '../images/Eli_Lilly_and_Company.svg';
 import CardSection from './CardSection';
 
 const items = [
