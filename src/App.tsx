@@ -29,7 +29,7 @@ const App: React.FC = () => {
   const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
   const contactMeRef = React.useRef(null);
-  watchForHover();
+  window.onload = () => watchForHover();
   return (
     <div className={classes.mainPage}>
       <TopBar

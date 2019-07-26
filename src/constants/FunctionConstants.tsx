@@ -20,7 +20,7 @@ const watchForHover = () => {
 
     const enableHover = () => {
         // filter emulated events coming from touch events
-        if (new Date().getMilliseconds() - lastTouchTime < 500) return;
+        if (new Date().valueOf() - lastTouchTime < 500) return;
         if (hasHoverClass) return;
 
         container.className += ' hasHover';
@@ -35,7 +35,7 @@ const watchForHover = () => {
     }
 
     const updateLastTouchTime = () => {
-        lastTouchTime = new Date().getMilliseconds();
+        lastTouchTime = new Date().valueOf();
     }
 
     document.addEventListener('touchstart', updateLastTouchTime, true);
