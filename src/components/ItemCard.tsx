@@ -27,7 +27,7 @@ const useStyles = makeStyles(
 const CompanyCard: React.FC<ItemCardProps> = (props) => {
   const classes = useStyles(props);
   const handleTouchEnd = (flipCard: Element, effectStates: { cardTouched: boolean; timeDuration: number; touchMoving: boolean;}) => {
-    if (new Date().valueOf() - effectStates.timeDuration < 200 && !effectStates.touchMoving) {
+    if (new Date().valueOf() - effectStates.timeDuration < 500 && !effectStates.touchMoving) {
       effectStates.cardTouched = !effectStates.cardTouched;
       if (!effectStates.cardTouched) {
         flipCard.className += ' flip-card-touched';
