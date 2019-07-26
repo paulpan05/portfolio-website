@@ -26,8 +26,8 @@ const useStyles = makeStyles(
 
 const CompanyCard: React.FC<ItemCardProps> = (props) => {
   const classes = useStyles(props);
-  const handleTouchEnd = (flipCard: Element, effectStates: { cardTouched: boolean; timeDuration: number; }) => {
-    if (new Date().valueOf() - effectStates.timeDuration < 120) {
+  const handleTouchEnd = (flipCard: Element, effectStates: { cardTouched: boolean; timeDuration: number; touchMoving: boolean;}) => {
+    if (new Date().valueOf() - effectStates.timeDuration < 200 && !effectStates.touchMoving) {
       effectStates.cardTouched = !effectStates.cardTouched;
       if (!effectStates.cardTouched) {
         flipCard.className += ' flip-card-touched';
@@ -35,17 +35,24 @@ const CompanyCard: React.FC<ItemCardProps> = (props) => {
         flipCard.className = flipCard.className.replace(' flip-card-touched', '');
       }
     }
+    effectStates.touchMoving = false;
   }
   React.useEffect(() => {
     const flipCard = document.querySelector('.flip-card') as Element
-    let effectStates = { cardTouched: false, timeDuration: 0 };
+    let effectStates = { cardTouched: false, timeDuration: 0, touchMoving: false };
     flipCard.addEventListener('touchstart', () => {
       effectStates.timeDuration = new Date().valueOf();
+    });
+    flipCard.addEventListener('touchmove', () => {
+      effectStates.touchMoving = true;
     });
     flipCard.addEventListener('touchend', () => handleTouchEnd(flipCard, effectStates));
     return () => {
       flipCard.removeEventListener('touchstart', () => {
         effectStates.timeDuration = new Date().valueOf();
+      });
+      flipCard.removeEventListener('touchmove', () => {
+        effectStates.touchMoving = true;
       });
       flipCard.removeEventListener('touchend', () => handleTouchEnd(flipCard, effectStates));
     }
