@@ -4,32 +4,15 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { page, topBarHeight } from '../constants/TopBarConstants'
-
-const scrollToComponent = (ref: React.RefObject<any>) => {
-  window.scrollTo(0, ref.current.offsetTop);
-}
-
-const scrolledUp = (ref: React.RefObject<any>): boolean => {
-  return window.pageYOffset < ref.current.offsetTop - topBarHeight;
-}
-
-type TopBarProps = {
-  aboutMe: React.RefObject<HTMLDivElement>
-  experience: React.RefObject<HTMLDivElement>
-  projects: React.RefObject<HTMLDivElement>
-  education: React.RefObject<HTMLDivElement>
-  profile: React.RefObject<HTMLDivElement>
-  contactMe: React.RefObject<HTMLDivElement>
-}
+import { page, topBarHeight } from '../constants/TopBarConstants';
+import { scrollToComponent, scrolledUp } from '../constants/FunctionConstants';
+import { TopBarProps } from '../constants/PropsConstants';
 
 const useStyles = makeStyles(
   createStyles({
     appBarTransparent: {
       backgroundColor: 'transparent',
       boxShadow: 'none',
-      WebkitBoxShadow: 'none',
-      MozBoxShadow: 'none'
     },
     tab: {
       height: topBarHeight
@@ -43,6 +26,18 @@ const useStyles = makeStyles(
 const TopBar: React.FC<TopBarProps> = (props) => {
   const classes = useStyles();
   const [barClass, setBarClass] = React.useState<string | undefined>(classes.appBarTransparent);
+  const handleBarTransparency = () => {
+    scrolledUp(props.profile) ? setBarClass(classes.appBarTransparent) : setBarClass(undefined);
+  }
+  React.useEffect(() => {
+    document.addEventListener('load', handleBarTransparency);
+    document.addEventListener('scroll', handleBarTransparency);
+    return () => {
+      document.removeEventListener('load', handleBarTransparency);
+      document.removeEventListener('scroll', handleBarTransparency);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const tabChange = (_event: React.ChangeEvent<{}>, value: number): void => {
     switch (value) {
       case page.AboutMe:
@@ -62,9 +57,6 @@ const TopBar: React.FC<TopBarProps> = (props) => {
         break;
       default:
     }
-  }
-  window.onscroll = () => {
-    scrolledUp(props.profile) ? setBarClass(classes.appBarTransparent) : setBarClass(undefined);
   }
   const smallScreen: boolean = useMediaQuery('(min-width: 700px)');
   const tabNames = [

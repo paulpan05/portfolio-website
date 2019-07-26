@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+import background from './images/background.jpg';
 import TopBar from './components/TopBar';
 import AboutMe from './components/AboutMe';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Education from './components/Education';
 import ContactMe from './components/ContactMe';
-import background from './images/background.jpg';
 
 const useStyles = makeStyles(
   createStyles({
@@ -28,6 +28,13 @@ const App: React.FC = () => {
   const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
   const contactMeRef = React.useRef(null);
+  React.useEffect(() => {
+    document.addEventListener('touchstart', () => {});
+    return () => {
+      document.removeEventListener('touchstart', () => {});
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className={classes.mainPage}>
       <TopBar

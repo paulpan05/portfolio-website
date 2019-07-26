@@ -4,9 +4,10 @@ import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { topBarHeight } from '../constants/TopBarConstants';
+import '../css/AboutMeTransitions.css'
 import profile from '../images/profile.jpg';
-import '../css/AboutMe.css'
+import { topBarHeight } from '../constants/TopBarConstants';
+import { AboutMeProps } from '../constants/PropsConstants';
 
 const useStyles = makeStyles(
   createStyles({
@@ -15,9 +16,9 @@ const useStyles = makeStyles(
       height: 250
     },
     grid: {
-      height: '100vh',
-      minHeight: '650px',
-      verticalAlign: 'middle'
+      minHeight: window.innerHeight,
+      verticalAlign: 'middle',
+      overflow: 'hidden'
     },
     headerText: {
       textAlign: 'center',
@@ -25,10 +26,6 @@ const useStyles = makeStyles(
     }
   })
 );
-
-type AboutMeProps = {
-  profileRef: React.RefObject<HTMLDivElement>
-};
 
 const AboutMe: React.FC<AboutMeProps> = (props) => {
   const classes = useStyles();
@@ -43,7 +40,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
           alt="Remy Sharp" 
           src={profile}
           className={classes.avatar}
-          style={{marginTop: topBarHeight}}
+          style={{marginTop: topBarHeight + 1}}
           ref={props.profileRef}
         />
     },
@@ -85,7 +82,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
         <Typography
           variant="h6"
           className={classes.headerText}
-          gutterBottom
+          style={{marginBottom: topBarHeight + 1}}
         >
           B.S. Computer Science, UC San Diego, Graduating June 2022
         </Typography>

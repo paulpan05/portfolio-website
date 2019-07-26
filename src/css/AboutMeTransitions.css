@@ -3,11 +3,11 @@
 .self-descr-appear,
 .self-edu-appear {
   opacity: 0;
-  -webkit-transform: translateX(50%);
-  -moz-transform: translateX(50%);
-  -ms-transform: translateX(50%);
-  transform: translateX(50%);
-  -o-transform: translateX(50%);
+  -webkit-transform: translateX(30%);
+  -moz-transform: translateX(30%);
+  -ms-transform: translateX(30%);
+  transform: translateX(30%);
+  -o-transform: translateX(30%);
 }
 
 .avatar-appear-active,
@@ -23,21 +23,21 @@
 }
 
 .avatar-appear-active {
-  -webkit-transitioin: all 1s;
+  -webkit-transition: all 1s;
   -moz-transition: all 1s;
   transition: all 1s;
   -o-transition: all 1s;
 }
 
 .self-intro-appear-active {
-  -webkit-transitioin: all 1s 0.5s;
+  -webkit-transition: all 1s 0.5s;
   -moz-transition: all 1s 0.5s;
   transition: all 1s 0.5s;
   -o-transition: all 1s 0.5s;
 }
 
 .self-descr-appear-active {
-  -webkit-transitioin: all 1s 1s;
+  -webkit-transition: all 1s 1s;
   -moz-transition: all 1s 1s;
   transition: all 1s 1s;
   -o-transition: all 1s 1s;
