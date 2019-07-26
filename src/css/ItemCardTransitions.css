@@ -20,12 +20,12 @@
   transition: all 0.5s;
 }
 
-.flip-card:hover .flip-card-front {
+body.hasHover .flip-card:hover .flip-card-front {
   opacity: 0;
   transition: all 0.5s;
 }
 
-.flip-card:hover .flip-card-back {
+body.hasHover .flip-card:hover .flip-card-back {
   opacity: 1;
   transition: all 0.5s;
 }
