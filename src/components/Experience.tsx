@@ -30,7 +30,7 @@ const Experience: React.FC = () => {
       items={items}
       cardHeight='10em'
       title='Experience'
-      subtitle='(Hover on card to show details)'
+      subtitle='(Hover or touch twice on card to show details)'
       backgroundColor='#379683'
       textColor='white' />
   );
