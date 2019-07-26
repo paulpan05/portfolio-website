@@ -32,7 +32,7 @@ const CompanyCard: React.FC<ItemCardProps> = (props) => {
     setTouchStartTime(new Date().valueOf());
   }
   const handleTouchEnd = () => {
-    if (new Date().valueOf() - touchStartTime > 500) {
+    if (new Date().valueOf() - touchStartTime < 200) {
       switch (cardCurrentClass) {
         case '':
           setCardCurrentClass('flip-card-touched');
@@ -45,12 +45,13 @@ const CompanyCard: React.FC<ItemCardProps> = (props) => {
     }
   }
   React.useEffect(() => {
-    document.addEventListener('touchstart', handleTouchStart);
-    document.addEventListener('touchend', handleTouchEnd);
+    (document.querySelector('.flip-card') as Element).addEventListener('touchstart', handleTouchStart);
+    (document.querySelector('.flip-card') as Element).addEventListener('touchend', handleTouchEnd);
     return () => {
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
+      (document.querySelector('.flip-card') as Element).removeEventListener('touchstart', handleTouchStart);
+      (document.querySelector('.flip-card') as Element).removeEventListener('touchend', handleTouchEnd);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Card className={[classes.itemCard, 'flip-card', cardCurrentClass].join(' ')} elevation={24}>
