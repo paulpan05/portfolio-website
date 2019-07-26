@@ -26,35 +26,33 @@ const useStyles = makeStyles(
 
 const CompanyCard: React.FC<ItemCardProps> = (props) => {
   const classes = useStyles(props);
-  const [touchStartTime, setTouchStartTime] = React.useState(0);
-  const [cardCurrentClass, setCardCurrentClass] = React.useState('');
-  const handleTouchStart = () => {
-    setTouchStartTime(new Date().valueOf());
-  }
-  const handleTouchEnd = () => {
-    if (new Date().valueOf() - touchStartTime < 200) {
-      switch (cardCurrentClass) {
-        case '':
-          setCardCurrentClass('flip-card-touched');
-          break;
-        case 'flip-card-touched':
-          setCardCurrentClass('');
-          break;
-        default:
+  const handleTouchEnd = (flipCard: Element, effectStates: { cardTouched: boolean; timeDuration: number; }) => {
+    if (new Date().valueOf() - effectStates.timeDuration < 120) {
+      effectStates.cardTouched = !effectStates.cardTouched;
+      if (!effectStates.cardTouched) {
+        flipCard.className += ' flip-card-touched';
+      } else {
+        flipCard.className = flipCard.className.replace(' flip-card-touched', '');
       }
     }
   }
   React.useEffect(() => {
-    (document.querySelector('.flip-card') as Element).addEventListener('touchstart', handleTouchStart);
-    (document.querySelector('.flip-card') as Element).addEventListener('touchend', handleTouchEnd);
+    const flipCard = document.querySelector('.flip-card') as Element
+    let effectStates = { cardTouched: false, timeDuration: 0 };
+    flipCard.addEventListener('touchstart', () => {
+      effectStates.timeDuration = new Date().valueOf();
+    });
+    flipCard.addEventListener('touchend', () => handleTouchEnd(flipCard, effectStates));
     return () => {
-      (document.querySelector('.flip-card') as Element).removeEventListener('touchstart', handleTouchStart);
-      (document.querySelector('.flip-card') as Element).removeEventListener('touchend', handleTouchEnd);
+      flipCard.removeEventListener('touchstart', () => {
+        effectStates.timeDuration = new Date().valueOf();
+      });
+      flipCard.removeEventListener('touchend', () => handleTouchEnd(flipCard, effectStates));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <Card className={[classes.itemCard, 'flip-card', cardCurrentClass].join(' ')} elevation={24}>
+    <Card className={[classes.itemCard, 'flip-card'].join(' ')} elevation={24}>
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
           <Grid

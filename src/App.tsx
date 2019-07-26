@@ -29,12 +29,7 @@ const App: React.FC = () => {
   const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
   const contactMeRef = React.useRef(null);
-  React.useEffect(() => {
-    document.addEventListener('load', () => watchForHover(), true);
-    return () => {
-      document.removeEventListener('load', () => watchForHover(), true);
-    }
-  }, []);
+  watchForHover()
   return (
     <div className={classes.mainPage}>
       <TopBar

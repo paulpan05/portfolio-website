@@ -24,14 +24,12 @@ const watchForHover = () => {
     if (hasHoverClass) return;
 
     container.className += ' hasHover';
-    container.className = container.className.replace(' hasNoHover', '');
     hasHoverClass = true;
   }
 
   const disableHover = () => {
     if (!hasHoverClass) return;
 
-    container.className += ' hasNoHover';
     container.className = container.className.replace(' hasHover', '');
     hasHoverClass = false;
   }
