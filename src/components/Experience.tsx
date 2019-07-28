@@ -20,7 +20,7 @@ const items = [
       before each release.<br/><br/>
       <b>Languages and Frameworks:</b> TypeScript, Golang, React, Jest, D3.js,
       Gorilla Mux, AWS Lambda, HTML, CSS, JavaScript
-    </Typography>,
+    </Typography>
   }
 ];
 
