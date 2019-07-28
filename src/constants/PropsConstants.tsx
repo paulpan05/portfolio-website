@@ -25,6 +25,8 @@ export interface ItemCardProps {
   description: string
   fullDescription: JSX.Element
   cardHeight: string
+  cardNumber: number
+  sectionTitle: string
 }
 
 export interface TopBarProps {
