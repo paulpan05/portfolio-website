@@ -1,8 +1,8 @@
-export type AboutMeProps = {
+export interface AboutMeProps {
   profileRef: React.RefObject<HTMLDivElement>
 };
 
-export type CardSectionProps = {
+export interface CardSectionProps {
   items:
   {
     image: string
@@ -18,16 +18,18 @@ export type CardSectionProps = {
   textColor: string
 }
 
-export type ItemCardProps = {
+export interface ItemCardProps {
   image: string
   imageWidth: string
   itemName: string
   description: string
   fullDescription: JSX.Element
   cardHeight: string
+  cardNumber: number
+  sectionTitle: string
 }
 
-export type TopBarProps = {
+export interface TopBarProps {
   aboutMe: React.RefObject<HTMLDivElement>
   experience: React.RefObject<HTMLDivElement>
   projects: React.RefObject<HTMLDivElement>

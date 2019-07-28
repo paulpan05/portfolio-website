@@ -36,7 +36,7 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
   const [cardClass, setCardClass] = React.useState('card-section-enter');
   const classes = useStyles(props);
   const handleCardAnimate = () => {
-    let element = document.querySelector('#card-section-grid');
+    let element = document.querySelector('#' + props.title.toLowerCase());
     if (element && isElementVisible(element)) {
       setCardClass('card-section-enter-active');
     }
@@ -51,7 +51,7 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div id='card-section-grid'>
+    <div id={props.title.toLowerCase()}>
       <Grid
         container
         direction="column"
@@ -85,6 +85,8 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
                   description={item.description}
                   fullDescription={item.fullDescription}
                   cardHeight={props.cardHeight}
+                  cardNumber={key}
+                  sectionTitle={props.title}
                 />
               </Grid>
             )}
