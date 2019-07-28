@@ -85,6 +85,8 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
                   description={item.description}
                   fullDescription={item.fullDescription}
                   cardHeight={props.cardHeight}
+                  cardNumber={key}
+                  sectionTitle={props.title}
                 />
               </Grid>
             )}

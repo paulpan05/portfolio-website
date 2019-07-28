@@ -13,7 +13,7 @@ const useStyles = makeStyles(
     itemCard: {
       width: 500,
       height: '100%',
-      maxWidth: '90vw'
+      maxWidth: '80vw'
     },
     itemCardMedia: {
       width: (props: ItemCardProps) => props.imageWidth
@@ -26,19 +26,29 @@ const useStyles = makeStyles(
 
 const CompanyCard: React.FC<ItemCardProps> = (props) => {
   const classes = useStyles(props);
-  const handleTouchEnd = (flipCard: Element, effectStates: { cardTouched: boolean; timeDuration: number; touchMoving: boolean;}) => {
-    if (new Date().valueOf() - effectStates.timeDuration < 500 && !effectStates.touchMoving) {
-      effectStates.cardTouched = !effectStates.cardTouched;
-      if (!effectStates.cardTouched) {
-        flipCard.className += ' flip-card-touched';
-      } else {
-        flipCard.className = flipCard.className.replace(' flip-card-touched', '');
+  const handleTouchEnd =
+    (
+      flipCard: Element,
+      effectStates:
+        {
+          cardTouched: boolean;
+          timeDuration: number;
+          touchMoving: boolean;
+        }
+    ) => {
+      if (new Date().valueOf() - effectStates.timeDuration < 500 && !effectStates.touchMoving) {
+        effectStates.cardTouched = !effectStates.cardTouched;
+        if (!effectStates.cardTouched) {
+          flipCard.className += ' flip-card-touched';
+        } else {
+          flipCard.className = flipCard.className.replace(' flip-card-touched', '');
+        }
       }
+      effectStates.touchMoving = false;
     }
-    effectStates.touchMoving = false;
-  }
   React.useEffect(() => {
-    const flipCard = document.querySelector('.flip-card') as Element
+    const flipCard =
+      document.querySelectorAll('.' + props.sectionTitle.toLowerCase()).item(props.cardNumber)
     let effectStates = { cardTouched: false, timeDuration: 0, touchMoving: false };
     flipCard.addEventListener('touchstart', () => {
       effectStates.timeDuration = new Date().valueOf();
@@ -59,7 +69,9 @@ const CompanyCard: React.FC<ItemCardProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <Card className={[classes.itemCard, 'flip-card'].join(' ')} elevation={24}>
+    <Card
+      className={[classes.itemCard, 'flip-card', props.sectionTitle.toLowerCase()].join(' ')}
+      elevation={24}>
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
           <Grid
