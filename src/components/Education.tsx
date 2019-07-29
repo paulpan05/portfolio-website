@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { EducationProps } from '../constants/PropsConstants';
 import { isElementVisible } from '../constants/FunctionConstants';
@@ -10,11 +11,11 @@ const useStyles = makeStyles(
       backgroundColor: '#2980b9',
       overflow: 'hidden'
     },
-    cardSection: {
+    educationSection: {
       marginBlockStart: '2.75em',
       marginBlockEnd: '2.75em'
     },
-    cardSectionTitle: {
+    educationSectionTitle: {
       color: 'white',
       marginBlockEnd: '1em',
       textAlign: 'center'
@@ -49,7 +50,11 @@ const Education: React.FC<EducationProps> = (props) => {
         alignItems="center"
         className={classes.educationGrid}
       >
-        <div className={sectionClass}></div>
+        <div className={[classes.educationSection, sectionClass].join(' ')}>
+          <Typography variant='h3' className={classes.educationSectionTitle}>
+            Education
+          </Typography>
+        </div>
       </Grid>
     </div>
   );

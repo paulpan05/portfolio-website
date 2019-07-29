@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import '../css/AboutMeTransitions.css'
 import profile from '../images/profile.jpg';
+import background from '../images/background.jpg';
 import { topBarHeight } from '../constants/TopBarConstants';
 import { AboutMeProps } from '../constants/PropsConstants';
 
@@ -18,7 +19,9 @@ const useStyles = makeStyles(
     grid: {
       minHeight: window.innerHeight || document.documentElement.clientHeight,
       verticalAlign: 'middle',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      background: `url(${background}) no-repeat center center fixed`,
+      backgroundSize: "cover",
     },
     headerText: {
       textAlign: 'center',

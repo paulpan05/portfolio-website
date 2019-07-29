@@ -60,7 +60,7 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
         className={classes.cardSectionGrid}
       >
         <div className={[classes.cardSection, sectionClass].join(' ')}>
-          <Typography variant='h3' className={classes.cardSectionTitle} id='section-title'>
+          <Typography variant='h3' className={classes.cardSectionTitle}>
             {props.title}
           </Typography>
           <Typography variant='subtitle1' className={classes.cardSectionSubtitle}>

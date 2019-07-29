@@ -33,7 +33,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
       cardHeight='15em'
       title='Experience'
       subtitle='(Hover or touch twice on card to show details)'
-      backgroundColor='#379683'
+      backgroundColor='#16a085'
       textColor='white'
       currentRef={props.experienceRef}
     />
