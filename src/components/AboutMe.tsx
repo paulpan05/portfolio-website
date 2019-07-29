@@ -95,6 +95,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       justify="center"
       alignItems="center"
       className={classes.grid}
+      ref={props.aboutMeRef}
     >
       { transitionComponents.map((component, key) => 
         <CSSTransition

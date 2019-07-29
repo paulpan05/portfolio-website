@@ -5,6 +5,7 @@ import honeyImage from '../images/Honey4Groceries.png';
 import easyTourImage from '../images/Easy_Tour.svg';
 import solvingClimateChangeImage from '../images/Solving_Climate_Change.png';
 import IEEEQPSP19Image from '../images/IEEE_QP_SP19.jpg';
+import { ProjectsProps } from '../constants/PropsConstants';
 
 const items = [
   {
@@ -83,7 +84,7 @@ const items = [
   }
 ];
 
-const Projects: React.FC = () => {
+const Projects: React.FC<ProjectsProps> = (props) => {
   return (
     <CardSection
       items={items}
@@ -91,7 +92,9 @@ const Projects: React.FC = () => {
       title='Projects'
       subtitle='(Hover or touch twice on card to show details)'
       backgroundColor='#27ae60'
-      textColor='white' />
+      textColor='white'
+      currentRef={props.projectsRef}
+    />
   );
 }
 

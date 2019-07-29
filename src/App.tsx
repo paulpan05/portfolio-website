@@ -40,21 +40,22 @@ const App: React.FC = () => {
         profile={profileRef}
         contactMe={contactMeRef}
       />
-      <div ref={aboutMeRef}>
-        <AboutMe profileRef={profileRef}/>
-      </div>
-      <div ref={experienceRef}>
-        <Experience />
-      </div>
-      <div ref={projectsRef}>
-        <Projects />
-      </div>
-      <div ref={educationRef}>
-        <Education />
-      </div>
-      <div ref={contactMeRef}>
-        <ContactMe />
-      </div>
+      <AboutMe
+        profileRef={profileRef}
+        aboutMeRef={aboutMeRef}
+      />
+      <Experience
+        experienceRef={experienceRef}
+      />
+      <Projects
+        projectsRef={projectsRef}
+      />
+      <Education
+        educationRef={educationRef}
+      />
+      <ContactMe
+        contactMeRef={contactMeRef}
+      />
     </div>
   );
 }
