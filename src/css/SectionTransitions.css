@@ -1,6 +1,6 @@
 .section-enter {
   opacity: 0;
-  transform: translateY(40%);
+  transform: translateX(30%);
 }
 
 .section-enter-active {
