@@ -1,25 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TopBar from './components/TopBar';
+import AboutMe from './components/AboutMe';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Education from './components/Education';
+import ContactMe from './components/ContactMe';
+import { watchForHover } from './constants/FunctionConstants';
 
 const App: React.FC = () => {
+  const aboutMeRef = React.useRef(null);
+  const experienceRef = React.useRef(null);
+  const projectsRef = React.useRef(null);
+  const educationRef = React.useRef(null);
+  const profileRef = React.useRef(null);
+  const contactMeRef = React.useRef(null);
+  watchForHover()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <TopBar
+        aboutMe={aboutMeRef}
+        experience={experienceRef}
+        projects={projectsRef}
+        education={educationRef}
+        profile={profileRef}
+        contactMe={contactMeRef}
+      />
+      <AboutMe
+        profileRef={profileRef}
+        aboutMeRef={aboutMeRef}
+      />
+      <Experience
+        experienceRef={experienceRef}
+      />
+      <Projects
+        projectsRef={projectsRef}
+      />
+      <Education
+        educationRef={educationRef}
+      />
+      <ContactMe
+        contactMeRef={contactMeRef}
+      />
+    </React.Fragment>
   );
 }
 
