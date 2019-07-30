@@ -51,49 +51,49 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div id={props.title.toLowerCase()} ref={props.currentRef}>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        className={classes.cardSectionGrid}
-      >
-        <div className={[classes.cardSection, sectionClass].join(' ')}>
-          <Typography variant='h3' className={classes.cardSectionTitle}>
-            {props.title}
-          </Typography>
-          <Typography variant='subtitle1' className={classes.cardSectionSubtitle}>
-            {props.subtitle}
-          </Typography>
-          <Grid
-            container
-            direction="row"
-            justify="center"
-            alignItems="center"
-          >
-            {props.items.map((item, key) =>
-              <Grid
-                item
-                className={classes.cardsGrid}
-                key={key}
-              >
-                <ItemCard
-                  image={item.image}
-                  imageWidth={item.imageWidth}
-                  itemName={item.itemName}
-                  description={item.description}
-                  fullDescription={item.fullDescription}
-                  cardHeight={props.cardHeight}
-                  cardNumber={key}
-                  sectionTitle={props.title}
-                />
-              </Grid>
-            )}
-          </Grid>
-        </div>
-      </Grid>
-    </div>
+    <Grid
+      container
+      direction="column"
+      justify="center"
+      alignItems="center"
+      className={classes.cardSectionGrid}
+      ref={props.currentRef}
+      id={props.title.toLowerCase()}
+    >
+      <div className={[classes.cardSection, sectionClass].join(' ')}>
+        <Typography variant='h3' className={classes.cardSectionTitle}>
+          {props.title}
+        </Typography>
+        <Typography variant='subtitle1' className={classes.cardSectionSubtitle}>
+          {props.subtitle}
+        </Typography>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          {props.items.map((item, key) =>
+            <Grid
+              item
+              className={classes.cardsGrid}
+              key={key}
+            >
+              <ItemCard
+                image={item.image}
+                imageWidth={item.imageWidth}
+                itemName={item.itemName}
+                description={item.description}
+                fullDescription={item.fullDescription}
+                cardHeight={props.cardHeight}
+                cardNumber={key}
+                sectionTitle={props.title}
+              />
+            </Grid>
+          )}
+        </Grid>
+      </div>
+    </Grid>
   );
 }
 

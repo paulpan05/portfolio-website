@@ -88,7 +88,7 @@ const Projects: React.FC<ProjectsProps> = (props) => {
   return (
     <CardSection
       items={items}
-      cardHeight='13em'
+      cardHeight='15em'
       title='Projects'
       subtitle='(Hover or touch twice on card to show details)'
       backgroundColor='#27ae60'

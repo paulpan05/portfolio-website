@@ -7,6 +7,6 @@ const page = {
   ContactMe: 5
 }
 
-const topBarHeight = 55;
+const topBarHeight = 65;
 
 export { page, topBarHeight };

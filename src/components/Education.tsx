@@ -4,6 +4,11 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { EducationProps } from '../constants/PropsConstants';
 import { isElementVisible } from '../constants/FunctionConstants';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
+import UCSDImg from '../images/UCSD.jpg';
 
 const useStyles = makeStyles(
   createStyles({
@@ -19,6 +24,24 @@ const useStyles = makeStyles(
       color: 'white',
       marginBlockEnd: '1em',
       textAlign: 'center'
+    },
+    educationCard: {
+      width: 700,
+      height: '100%',
+      maxWidth: '80vw'
+    },
+    educationCardMedia: {
+      width: '100%',
+      height: '100%'
+    },
+    educationLogoGrid: {
+      height: '15em'
+    },
+    educationSubtitile: {
+      marginBottom: '1em'
+    },
+    educationCoursework: {
+      marginTop: '1em'
     }
   })
 );
@@ -42,21 +65,59 @@ const Education: React.FC<EducationProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div ref={props.educationRef} id='education'>
-      <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        className={classes.educationGrid}
-      >
-        <div className={[classes.educationSection, sectionClass].join(' ')}>
-          <Typography variant='h3' className={classes.educationSectionTitle}>
-            Education
-          </Typography>
-        </div>
-      </Grid>
-    </div>
+    <Grid
+      container
+      direction="column"
+      justify="center"
+      alignItems="center"
+      className={classes.educationGrid}
+      ref={props.educationRef}
+      id='education'
+    >
+      <div className={[classes.educationSection, sectionClass].join(' ')}>
+        <Typography variant='h3' className={classes.educationSectionTitle}>
+          Education
+        </Typography>
+        <Card
+          className={classes.educationCard}
+          elevation={24}
+        >
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            className={classes.educationLogoGrid}
+          >
+            <CardMedia
+              src={UCSDImg}
+              component="img"
+              title='UC San Diego'
+              className={classes.educationCardMedia}
+            />
+          </Grid>
+          <CardContent>
+            <Typography variant="h5">
+              UC San Diego
+            </Typography>
+            <Typography variant='subtitle1' className={classes.educationSubtitile}>
+              B.S. Computer Science, Graduating June 2022
+            </Typography>
+            <Divider />
+            <Typography variant='h6' className={classes.educationCoursework}>
+              Relevant Coursework:
+            </Typography>
+            <Typography>
+              <b>CSE 11</b> - Introduction to Computer Science and Object-Oriented Programming: Java<br />
+              <b>CSE 12</b> - Basic Data Structures and Object-Oriented Design<br />
+              <b>CSE 15L</b> - Software Tools and Techniques Laboratory<br />
+              <b>CSE 20</b> - Discrete Mathematics<br />
+              <b>CSE 21</b> - Mathematics for Algorithms and Systems<br />
+              <b>CSE 30</b> - Computer Organization and Systems Programming
+            </Typography>
+          </CardContent>
+        </Card>
+      </div>
+    </Grid>
   );
 }
 
