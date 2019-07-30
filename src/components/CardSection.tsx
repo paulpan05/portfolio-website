@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme: Theme) =>
       overflow: 'hidden'
     },
     cardSection: {
-      marginBlockStart: '2.75em',
-      marginBlockEnd: '2.75em'
+      marginBlockStart: '1.5em',
+      marginBlockEnd: '1.5em'
     },
     cardSectionTitle: {
       color: (props: CardSectionProps) => props.textColor,
@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     cardSectionSubtitle: {
       color: (props: CardSectionProps) => props.textColor,
-      marginBlockEnd: '1em',
       textAlign: 'center'
     },
     cardsGrid: {
@@ -61,7 +60,7 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
       id={props.title.toLowerCase()}
     >
       <div className={[classes.cardSection, sectionClass].join(' ')}>
-        <Typography variant='h3' className={classes.cardSectionTitle}>
+        <Typography variant='h4' className={classes.cardSectionTitle}>
           {props.title}
         </Typography>
         <Typography variant='subtitle1' className={classes.cardSectionSubtitle}>
@@ -74,8 +73,7 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
           alignItems="center"
         >
           {props.items.map((item, key) =>
-            <Grid
-              item
+            <div
               className={classes.cardsGrid}
               key={key}
             >
@@ -89,7 +87,7 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
                 cardNumber={key}
                 sectionTitle={props.title}
               />
-            </Grid>
+            </div>
           )}
         </Grid>
       </div>
