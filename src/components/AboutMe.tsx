@@ -21,8 +21,7 @@ const useStyles = makeStyles(
       verticalAlign: 'middle',
       overflow: 'hidden',
       background: `url(${background}) no-repeat center center fixed`,
-      backgroundSize: "cover",
-      backgroundColor: '#243322'
+      backgroundSize: "cover"
     },
     headerText: {
       textAlign: 'center',

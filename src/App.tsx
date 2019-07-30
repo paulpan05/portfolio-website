@@ -14,6 +14,16 @@ const App: React.FC = () => {
   const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
   const contactMeRef = React.useRef(null);
+  const handlePageLoad = () => {
+    document.getElementsByTagName('html')[0].style.visibility = 'visible'
+  };
+  React.useEffect(() => {
+    window.addEventListener('load', handlePageLoad);
+    return () => {
+      window.removeEventListener('load', handlePageLoad);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   watchForHover()
   return (
     <React.Fragment>
