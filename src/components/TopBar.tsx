@@ -18,7 +18,7 @@ const useStyles = makeStyles(
       height: topBarHeight
     },
     tabLabel: {
-      fontSize: 'medium'
+      fontSize: '1.4em'
     }
   })
 );

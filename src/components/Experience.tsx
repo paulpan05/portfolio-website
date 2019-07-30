@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import lillyImage from '../images/Eli_Lilly_and_Company.svg';
 import CardSection from './CardSection';
+import { ExperienceProps } from '../constants/PropsConstants';
 
 const items = [
   {
@@ -25,15 +26,17 @@ const items = [
   }
 ];
 
-const Experience: React.FC = () => {
+const Experience: React.FC<ExperienceProps> = (props) => {
   return (
     <CardSection
       items={items}
       cardHeight='15em'
       title='Experience'
       subtitle='(Hover or touch twice on card to show details)'
-      backgroundColor='#379683'
-      textColor='white' />
+      backgroundColor='#16a085'
+      textColor='white'
+      currentRef={props.experienceRef}
+    />
   );
 }
 

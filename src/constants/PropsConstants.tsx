@@ -1,6 +1,23 @@
 export interface AboutMeProps {
   profileRef: React.RefObject<HTMLDivElement>
+  aboutMeRef: React.RefObject<HTMLDivElement>
 };
+
+export interface ExperienceProps {
+  experienceRef: React.RefObject<HTMLDivElement>
+}
+
+export interface ProjectsProps {
+  projectsRef: React.RefObject<HTMLDivElement>
+}
+
+export interface EducationProps {
+  educationRef: React.RefObject<HTMLDivElement>
+}
+
+export interface ContactMeProps {
+  contactMeRef: React.RefObject<HTMLDivElement>
+}
 
 export interface CardSectionProps {
   items:
@@ -16,6 +33,7 @@ export interface CardSectionProps {
   subtitle: string
   backgroundColor: string
   textColor: string
+  currentRef: React.RefObject<HTMLDivElement>
 }
 
 export interface ItemCardProps {

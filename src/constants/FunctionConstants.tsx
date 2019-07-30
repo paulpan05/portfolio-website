@@ -2,7 +2,7 @@ import { topBarHeight } from '../constants/TopBarConstants';
 
 const isElementVisible = (element: Element) => {
   let rect = element.getBoundingClientRect();
-  return rect.top < window.innerHeight;
+  return rect.top + topBarHeight < window.innerHeight;
 }
 
 const scrollToComponent = (ref: React.RefObject<any>) => {
