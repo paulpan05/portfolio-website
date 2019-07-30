@@ -55,6 +55,9 @@ const TopBar: React.FC<TopBarProps> = (props) => {
       case page.ContactMe:
         scrollToComponent(props.contactMe);
         break;
+      case page.Resume:
+        window.location.href = process.env.PUBLIC_URL + '/files/Resume.pdf';
+        break;
       default:
     }
   }
@@ -64,8 +67,8 @@ const TopBar: React.FC<TopBarProps> = (props) => {
     "Experience",
     "Projects",
     "Education",
-    "Resume",
-    "Contact Me"
+    "Contact Me",
+    "Resume"
   ];
   return (
     <AppBar className={barClass}>
