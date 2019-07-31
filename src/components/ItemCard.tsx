@@ -50,28 +50,30 @@ const CompanyCard: React.FC<ItemCardProps> = (props) => {
     const flipCard =
       document.querySelectorAll('.' + props.sectionTitle.toLowerCase()).item(props.cardNumber)
     let effectStates = { cardTouched: false, timeDuration: 0, touchMoving: false };
-    flipCard.addEventListener('touchstart', () => {
+    const setTimeDuration = () => {
       effectStates.timeDuration = new Date().valueOf();
-    });
-    flipCard.addEventListener('touchmove', () => {
+    }
+    const setTouchMovingTrue = () => {
       effectStates.touchMoving = true;
-    });
-    flipCard.addEventListener('touchend', () => handleTouchEnd(flipCard, effectStates));
+    }
+    const doHandleTouchEnd = () => {
+      handleTouchEnd(flipCard, effectStates)
+    }
+    flipCard.addEventListener('touchstart', setTimeDuration);
+    flipCard.addEventListener('touchmove', setTouchMovingTrue);
+    flipCard.addEventListener('touchend', doHandleTouchEnd);
     return () => {
-      flipCard.removeEventListener('touchstart', () => {
-        effectStates.timeDuration = new Date().valueOf();
-      });
-      flipCard.removeEventListener('touchmove', () => {
-        effectStates.touchMoving = true;
-      });
-      flipCard.removeEventListener('touchend', () => handleTouchEnd(flipCard, effectStates));
+      flipCard.removeEventListener('touchstart', setTimeDuration);
+      flipCard.removeEventListener('touchmove', setTouchMovingTrue);
+      flipCard.removeEventListener('touchend', doHandleTouchEnd);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Card
       className={[classes.itemCard, 'flip-card', props.sectionTitle.toLowerCase()].join(' ')}
-      elevation={24}>
+      elevation={24}
+    >
       <div className='flip-card-inner'>
         <div className='flip-card-front'>
           <Grid
