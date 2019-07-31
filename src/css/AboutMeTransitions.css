@@ -6,14 +6,6 @@
   transform: translateX(30%);
 }
 
-.avatar-entered,
-.self-intro-entered,
-.self-descr-entered,
-.self-edu-entered {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 .avatar-entered {
   transition: all 1s;
 }
