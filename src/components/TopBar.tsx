@@ -61,7 +61,7 @@ const TopBar: React.FC<TopBarProps> = (props) => {
       default:
     }
   }
-  const smallScreen: boolean = useMediaQuery('(min-width: 700px)');
+  const smallScreen: boolean = useMediaQuery('(min-width: 800px)');
   const tabNames = [
     'About Me',
     'Experience',
