@@ -76,20 +76,20 @@ const CompanyCard: React.FC<ItemCardProps> = (props) => {
         <div className='flip-card-front'>
           <Grid
             container
-            direction="row"
-            justify="center"
-            alignItems="center"
+            direction='row'
+            justify='center'
+            alignItems='center'
             className={classes.itemLogoGrid}
           >
             <CardMedia
               src={props.image}
-              component="img"
+              component='img'
               title={props.itemName}
               className={classes.itemCardMedia}
             />
           </Grid>
           <CardContent>
-            <Typography variant="h5">
+            <Typography variant='h5'>
               {props.itemName}
             </Typography>
             <Typography variant='subtitle1'>

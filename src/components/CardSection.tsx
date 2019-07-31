@@ -52,9 +52,9 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
   return (
     <Grid
       container
-      direction="column"
-      justify="center"
-      alignItems="center"
+      direction='column'
+      justify='center'
+      alignItems='center'
       className={classes.cardSectionGrid}
       ref={props.currentRef}
       id={props.title.toLowerCase()}
@@ -68,9 +68,9 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
         </Typography>
         <Grid
           container
-          direction="row"
-          justify="center"
-          alignItems="center"
+          direction='row'
+          justify='center'
+          alignItems='center'
         >
           {props.items.map((item, key) =>
             <div

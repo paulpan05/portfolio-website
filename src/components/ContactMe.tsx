@@ -88,9 +88,9 @@ const ContactMe: React.FC<ContactMeProps> = (props) => {
   return (
     <Grid
       container
-      direction="column"
-      justify="center"
-      alignItems="center"
+      direction='column'
+      justify='center'
+      alignItems='center'
       className={classes.contactMeGrid}
       ref={props.contactMeRef}
       id='contactme'
@@ -101,9 +101,9 @@ const ContactMe: React.FC<ContactMeProps> = (props) => {
         </Typography>
         <Grid
           container
-          direction="row"
-          justify="center"
-          alignItems="center"
+          direction='row'
+          justify='center'
+          alignItems='center'
         >
           {items.map((item, key) =>
             <div

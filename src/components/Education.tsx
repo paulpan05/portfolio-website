@@ -69,9 +69,9 @@ const Education: React.FC<EducationProps> = (props) => {
   return (
     <Grid
       container
-      direction="column"
-      justify="center"
-      alignItems="center"
+      direction='column'
+      justify='center'
+      alignItems='center'
       className={classes.educationGrid}
       ref={props.educationRef}
       id='education'
@@ -87,19 +87,19 @@ const Education: React.FC<EducationProps> = (props) => {
           >
             <Grid
               container
-              direction="row"
-              justify="center"
+              direction='row'
+              justify='center'
               className={classes.educationLogoGrid}
             >
               <CardMedia
                 src={UCSDImg}
-                component="img"
+                component='img'
                 title='UC San Diego'
                 className={classes.educationCardMedia}
               />
             </Grid>
             <CardContent>
-              <Typography variant="h5">
+              <Typography variant='h5'>
                 UC San Diego
             </Typography>
               <Typography variant='subtitle1' className={classes.educationSubtitile}>

@@ -63,12 +63,12 @@ const TopBar: React.FC<TopBarProps> = (props) => {
   }
   const smallScreen: boolean = useMediaQuery('(min-width: 700px)');
   const tabNames = [
-    "About Me",
-    "Experience",
-    "Projects",
-    "Education",
-    "Contact Me",
-    "Resume"
+    'About Me',
+    'Experience',
+    'Projects',
+    'Education',
+    'Contact Me',
+    'Resume'
   ];
   return (
     <AppBar className={barClass}>
@@ -76,9 +76,9 @@ const TopBar: React.FC<TopBarProps> = (props) => {
         value={false}
         onChange={tabChange}
         centered={smallScreen}
-        variant={smallScreen ? undefined : "scrollable"}
-        scrollButtons={smallScreen ? undefined : "on"}
-        textColor="white"
+        variant={smallScreen ? undefined : 'scrollable'}
+        scrollButtons={smallScreen ? undefined : 'on'}
+        textColor='white'
       >
         { tabNames.map( (tabName, key) =>
           <Tab label={<span className={classes.tabLabel}>{tabName}</span>} className={classes.tab} key={key} />

@@ -21,7 +21,7 @@ const useStyles = makeStyles(
       verticalAlign: 'middle',
       overflow: 'hidden',
       background: `url(${background}) no-repeat center center fixed`,
-      backgroundSize: "cover"
+      backgroundSize: 'cover'
     },
     headerText: {
       textAlign: 'center',
@@ -37,10 +37,10 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       in: true, 
       appear: true, 
       timeout: 1000, 
-      classNames: "avatar",
+      classNames: 'avatar',
       element: 
         <Avatar
-          alt="Remy Sharp" 
+          alt='Remy Sharp' 
           src={profile}
           className={classes.avatar}
           style={{marginTop: topBarHeight + 1}}
@@ -51,10 +51,10 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       in: true, 
       appear: true, 
       timeout: 1500, 
-      classNames: "self-intro",
+      classNames: 'self-intro',
       element:
       <Typography
-        variant="h2"
+        variant='h2'
         className={classes.headerText}
         style={{marginTop: '0.5em'}}
         gutterBottom
@@ -66,10 +66,10 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       in: true, 
       appear: true, 
       timeout: 2000, 
-      classNames: "self-descr",
+      classNames: 'self-descr',
       element:
         <Typography
-          variant="h4"
+          variant='h4'
           className={classes.headerText}
           gutterBottom
         >
@@ -80,10 +80,10 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       in: true, 
       appear: true, 
       timeout: 2500, 
-      classNames: "self-edu",
+      classNames: 'self-edu',
       element:
         <Typography
-          variant="h6"
+          variant='h6'
           className={classes.headerText}
           style={{marginBottom: topBarHeight + 1}}
         >
@@ -94,9 +94,9 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
   return (
     <Grid
       container
-      direction="column"
-      justify="center"
-      alignItems="center"
+      direction='column'
+      justify='center'
+      alignItems='center'
       className={classes.grid}
       ref={props.aboutMeRef}
     >
