@@ -93,7 +93,7 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       </Typography>
       <Typography
         variant='h6'
-        className={[classes.headerText, selfEduClass].join(' ')}
+        className={[classes.headerText, classes.selfEdu, selfEduClass].join(' ')}
       >
         B.S. Computer Science, UC San Diego, Graduating June 2022
       </Typography>
