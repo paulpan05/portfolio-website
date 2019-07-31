@@ -1,8 +1,8 @@
-.section-enter {
+.section-entering {
   opacity: 0;
   transform: translateY(50%);
 }
 
-.section-enter-active {
+.section-entered {
   transition: all 1s 0.15s;
 }

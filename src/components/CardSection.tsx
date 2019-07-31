@@ -32,20 +32,20 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const CardSection: React.FC<CardSectionProps> = (props) => {
-  const [sectionClass, setSectionClass] = React.useState('section-enter');
+  const [sectionClass, setSectionClass] = React.useState('section-entering');
   const classes = useStyles(props);
   const handleSectionAnimate = () => {
     let element = document.querySelector('#' + props.title.toLowerCase());
     if (element && isElementVisible(element)) {
-      setSectionClass('section-enter-active');
+      setSectionClass('section-entered');
     }
   }
   React.useEffect(() => {
-    document.addEventListener('load', handleSectionAnimate);
-    document.addEventListener('scroll', handleSectionAnimate);
+    window.addEventListener('load', handleSectionAnimate);
+    window.addEventListener('scroll', handleSectionAnimate);
     return () => {
-      document.removeEventListener('load', handleSectionAnimate);
-      document.removeEventListener('scroll', handleSectionAnimate);
+      window.removeEventListener('load', handleSectionAnimate);
+      window.removeEventListener('scroll', handleSectionAnimate);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

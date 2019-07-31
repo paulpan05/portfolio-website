@@ -1,31 +1,31 @@
-.avatar-appear,
-.self-intro-appear,
-.self-descr-appear,
-.self-edu-appear {
+.avatar-entering,
+.self-intro-entering,
+.self-descr-entering,
+.self-edu-entering {
   opacity: 0;
   transform: translateX(30%);
 }
 
-.avatar-appear-active,
-.self-intro-appear-active,
-.self-descr-appear-active,
-.self-edu-appear-active {
+.avatar-entered,
+.self-intro-entered,
+.self-descr-entered,
+.self-edu-entered {
   opacity: 1;
   transform: translateX(0);
 }
 
-.avatar-appear-active {
+.avatar-entered {
   transition: all 1s;
 }
 
-.self-intro-appear-active {
+.self-intro-entered {
   transition: all 1s 0.5s;
 }
 
-.self-descr-appear-active {
+.self-descr-entered {
   transition: all 1s 1s;
 }
 
-.self-edu-appear-active {
+.self-edu-entered {
   transition: all 1s 1.5s;
 }

@@ -30,11 +30,11 @@ const TopBar: React.FC<TopBarProps> = (props) => {
     scrolledUp(props.profile) ? setBarClass(classes.appBarTransparent) : setBarClass(undefined);
   }
   React.useEffect(() => {
-    document.addEventListener('load', handleBarTransparency);
-    document.addEventListener('scroll', handleBarTransparency);
+    window.addEventListener('load', handleBarTransparency);
+    window.addEventListener('scroll', handleBarTransparency);
     return () => {
-      document.removeEventListener('load', handleBarTransparency);
-      document.removeEventListener('scroll', handleBarTransparency);
+      window.removeEventListener('load', handleBarTransparency);
+      window.removeEventListener('scroll', handleBarTransparency);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -1,5 +1,4 @@
 import React from 'react';
-import { CSSTransition } from 'react-transition-group';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -9,6 +8,7 @@ import profile from '../images/profile.jpg';
 import background from '../images/background.jpg';
 import { topBarHeight } from '../constants/TopBarConstants';
 import { AboutMeProps } from '../constants/PropsConstants';
+import { isElementVisible } from '../constants/FunctionConstants';
 
 const useStyles = makeStyles(
   createStyles({
@@ -26,71 +26,40 @@ const useStyles = makeStyles(
     headerText: {
       textAlign: 'center',
       color: 'white'
+    },
+    selfIntro: {
+      marginTop: '0.5em'
+    },
+    selfEdu: {
+      marginBottom: topBarHeight + 1
     }
   })
 );
 
 const AboutMe: React.FC<AboutMeProps> = (props) => {
+  const [avatarClass, setAvatarClass] = React.useState('avatar-entering');
+  const [selfIntroClass, setSelfIntroClass] = React.useState('self-intro-entering');
+  const [selfDescrClass, setSelfDescrClass] = React.useState('self-descr-entering');
+  const [selfEduClass, setSelfEduClass] = React.useState('self-edu-entering');
   const classes = useStyles();
-  const transitionComponents = [
-    {
-      in: true, 
-      appear: true, 
-      timeout: 1000, 
-      classNames: 'avatar',
-      element: 
-        <Avatar
-          alt='Remy Sharp' 
-          src={profile}
-          className={classes.avatar}
-          style={{marginTop: topBarHeight + 1}}
-          ref={props.profileRef}
-        />
-    },
-    {
-      in: true, 
-      appear: true, 
-      timeout: 1500, 
-      classNames: 'self-intro',
-      element:
-      <Typography
-        variant='h2'
-        className={classes.headerText}
-        style={{marginTop: '0.5em'}}
-        gutterBottom
-      >
-        This is Paul
-      </Typography> 
-    },
-    {
-      in: true, 
-      appear: true, 
-      timeout: 2000, 
-      classNames: 'self-descr',
-      element:
-        <Typography
-          variant='h4'
-          className={classes.headerText}
-          gutterBottom
-        >
-          I develop full-stack web and mobile applications.
-        </Typography>
-    },
-    {
-      in: true, 
-      appear: true, 
-      timeout: 2500, 
-      classNames: 'self-edu',
-      element:
-        <Typography
-          variant='h6'
-          className={classes.headerText}
-          style={{marginBottom: topBarHeight + 1}}
-        >
-          B.S. Computer Science, UC San Diego, Graduating June 2022
-        </Typography>
+  const handleSectionAnimate = () => {
+    let element = document.querySelector('#aboutme');
+    if (element && isElementVisible(element)) {
+      setAvatarClass('avatar-entered');
+      setSelfIntroClass('self-intro-entered');
+      setSelfDescrClass('self-descr-entered');
+      setSelfEduClass('self-edu-entered');
     }
-  ];
+  }
+  React.useEffect(() => {
+    window.addEventListener('load', handleSectionAnimate);
+    window.addEventListener('scroll', handleSectionAnimate);
+    return () => {
+      window.removeEventListener('load', handleSectionAnimate);
+      window.removeEventListener('scroll', handleSectionAnimate);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Grid
       container
@@ -99,18 +68,35 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
       alignItems='center'
       className={classes.grid}
       ref={props.aboutMeRef}
+      id='aboutme'
     >
-      { transitionComponents.map((component, key) => 
-        <CSSTransition
-          in={component.in}
-          appear={component.appear}
-          timeout={component.timeout}
-          classNames={component.classNames}
-          key={key}
-        >
-          {component.element}
-        </CSSTransition>
-      )}
+      <Avatar
+        alt='Remy Sharp'
+        src={profile}
+        className={[classes.avatar, avatarClass].join(' ')}
+        style={{ marginTop: topBarHeight + 1 }}
+        ref={props.profileRef}
+      />
+      <Typography
+        variant='h2'
+        className={[classes.headerText, classes.selfIntro, selfIntroClass].join(' ')}
+        gutterBottom
+      >
+        This is Paul
+      </Typography>
+      <Typography
+        variant='h4'
+        className={[classes.headerText, selfDescrClass].join(' ')}
+        gutterBottom
+      >
+        I develop full-stack web and mobile applications.
+      </Typography>
+      <Typography
+        variant='h6'
+        className={[classes.headerText, selfEduClass].join(' ')}
+      >
+        B.S. Computer Science, UC San Diego, Graduating June 2022
+      </Typography>
     </Grid>
   );
 }
