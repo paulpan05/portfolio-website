@@ -10,12 +10,18 @@ import FacebookImg from '../images/Facebook.png';
 import InstagramImg from '../images/Instagram.png';
 import SnapchatImg from '../images/Snapchat.png';
 import PhoneImg from '../images/Phone.png';
+import EmailImg from '../images/Email.png';
 
 const items = [
   {
     logoName: 'Phone',
     logoSrc: PhoneImg,
     siteSrc: 'tel:+16266918088'
+  },
+  {
+    logoName: 'Email',
+    logoSrc: EmailImg,
+    siteSrc: 'mailto:panjunhong05@gmail.com'
   },
   {
     logoName: 'GitHub',
