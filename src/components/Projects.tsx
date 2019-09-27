@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import CardSection from './CardSection';
+import containerizeImage from '../images/Containerize.png';
 import honeyImage from '../images/Honey4Groceries.png';
 import easyTourImage from '../images/Easy_Tour.svg';
 import solvingClimateChangeImage from '../images/Solving_Climate_Change.png';
@@ -9,13 +10,36 @@ import { ProjectsProps } from '../constants/PropsConstants';
 
 const items = [
   {
+    image: containerizeImage,
+    imageWidth: '70%',
+    itemName: 'Containerize',
+    description: 'Markdown note-taking web app with integrations',
+    fullDescription:
+      <Typography>
+        This is a web app that I have personally worked on which allows
+        signed-in users to take notes in markdown.
+        <br /><br />
+        As the development of the app progresses, I hope to integrate other
+        extensions into the notes, including a messaging board where people
+        who have access to a particular note can talk with each other.
+        <br /><br />
+        Currently there is also a playground included with the web app where
+        users can practice markdown.
+        <br /><br />
+        <b>Languages:</b> TypeScript, JavaScript, HTML, CSS<br />
+        <b>Frameworks:</b> React, Node.js, GraphQL<br />
+        <b>Services:</b> AWS Amplify, AWS API Gateway, AWS Lambda, AWS DynamoDB
+      </Typography>
+  },
+  {
     image: honeyImage,
     imageWidth: '80%',
     itemName: 'Honey4Groceries',
     description: 'An app for obtaining the best grocery deals',
     fullDescription:
       <Typography>
-        I am part of a small project team that develops a grocery deals iOS app.
+        I am part of a small project team that develops a grocery deals iOS
+        app.
         <br /><br />
         The app takes in a list of grocery items the user wants to buy along
         with the location. Subsequently, users are informed of the best
@@ -23,7 +47,7 @@ const items = [
         <br /><br />
         <b>Languages:</b> Swift, Go<br />
         <b>Frameworks:</b> PromiseKit, SwiftyJSON, Gorilla Mux<br />
-        <b>APIs:</b> Chomp API, Foursquare Places API<br />
+        <b>APIs:</b> Chomp API, Foursquare Places API
       </Typography>
   },
   {
@@ -79,7 +103,7 @@ const items = [
         door closes on detection of person being close enough into the room,
         which is signaled an ultrasonic distance sensor.
         <br /><br />
-        <b>Languages:</b> Arduino<br />
+        <b>Languages:</b> Arduino
       </Typography>
   }
 ];
