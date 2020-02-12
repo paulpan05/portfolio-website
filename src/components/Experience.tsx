@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import lillyImage from '../images/Eli_Lilly_and_Company.svg';
+import acmucsdImage from '../images/acmucsd.svg';
 import CardSection from './CardSection';
 import { ExperienceProps } from '../constants/PropsConstants';
 
@@ -28,6 +29,24 @@ const items = [
       <b>Languages:</b> TypeScript, Go, HTML, CSS, JavaScript<br/>
       <b>Frameworks:</b> React, Jest, D3.js, Gorilla Mux, Material-UI<br />
       <b>Services:</b> AWS Cognito, AWS API Gateway, AWS Lambda, AWS DynamoDB
+    </Typography>
+  }, 
+  {
+    image: acmucsdImage,
+    imageWidth: '40%',
+    itemName: 'ACM UC San Diego',
+    description: 'Front-end Developer (Fall 2019 - Present)',
+    fullDescription:
+    <Typography>
+      As a front-end developer at ACM UC San Diego, I help maintain the
+      organization's membership portal, fixing bugs and styling issues. I am
+      also the primary contributor to the implementation of the ACM landing
+      page based on the designs from the organization's Design Team.<br />
+      <br />Apart from web pages for ACM, I contributed to the development of
+      various event websites of events hosted by ACM, such as a startup
+      recruitment fair happening in Spring of 2020. <br /><br />
+      <b>Languages:</b> TypeScript, JavaScript, HTML, CSS, LESS<br />
+      <b>Frameworks and Tools:</b> React, CircleCI
     </Typography>
   }
 ];

@@ -6,9 +6,27 @@ import honeyImage from '../images/Honey4Groceries.png';
 import easyTourImage from '../images/Easy_Tour.svg';
 import solvingClimateChangeImage from '../images/Solving_Climate_Change.png';
 import IEEEQPSP19Image from '../images/IEEE_QP_SP19.jpg';
+import PaulUrlImage from '../images/Paul_Url.png';
 import { ProjectsProps } from '../constants/PropsConstants';
 
 const items = [
+  {
+    image: PaulUrlImage,
+    imageWidth: '80%',
+    itemName: 'PaulUrl.com',
+    description: 'URL shortener with Java as back-end',
+    fullDescription:
+      <Typography>
+        I developed a personal URL shortener app for the links I go on most
+        frequently. Going to the homepage shows all URL's I have put into
+        the database. Authentication to the back-end is handled by Java's
+        Spring framework security.
+        <br /><br />
+        <b>Languages:</b> Java, PostgreSQL, TypeScript, JavaScript, HTML, CSS
+        <b>Frameworks and Tools:</b> Spring MVC, TravisCI
+      </Typography>
+  }
+  ,
   {
     image: containerizeImage,
     imageWidth: '70%',
