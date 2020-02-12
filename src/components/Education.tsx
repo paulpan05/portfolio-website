@@ -115,7 +115,10 @@ const Education: React.FC<EducationProps> = (props) => {
                 <b>CSE 15L</b> - Software Tools and Techniques Laboratory<br />
                 <b>CSE 20</b> - Discrete Mathematics<br />
                 <b>CSE 21</b> - Mathematics for Algorithms and Systems<br />
-                <b>CSE 30</b> - Computer Organization and Systems Programming
+                <b>CSE 30</b> - Computer Organization and Systems Programming<br />
+                <b>CSE 100</b> - Advanced Data Structures<br />
+                <b>CSE 101</b> - Design and Analysis of Algorithms<br />
+                <b>CSE 105</b> - Theory of Computability<br />
             </Typography>
             </CardContent>
           </Card>
