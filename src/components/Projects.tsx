@@ -1,15 +1,55 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import CardSection from './CardSection';
-import containerizeImage from '../images/Containerize.png';
-import honeyImage from '../images/Honey4Groceries.png';
-import easyTourImage from '../images/Easy_Tour.svg';
-import solvingClimateChangeImage from '../images/Solving_Climate_Change.png';
-import IEEEQPSP19Image from '../images/IEEE_QP_SP19.jpg';
 import PaulUrlImage from '../images/Paul_Url.png';
+import TritonExchangeImage from '../images/triton-exchange.png';
+import SideTrackImage from '../images/sidetrack.png';
+import ContainerizeImage from '../images/Containerize.png';
 import { ProjectsProps } from '../constants/PropsConstants';
 
 const items = [
+  {
+    image: TritonExchangeImage,
+    imageWidth: '80%',
+    itemName: 'Triton Exchange',
+    description: 'Online marketplace for UCSD.',
+    fullDescription:
+      <Typography>
+        Over the course of 2 months. I worked with a team of 10 people on
+        making an online marketplace that is capable of replacing the current
+        free and for sale Facebook groups at UCSD. Since there are too many
+        places students would have to look for in the page to buy items, and
+        there is no one consolidated place where sellers can sell the items.
+        We decided a consolidated marketplace is the best idea. The
+        trustworthiness of the entire marketplace is backed by our buyer and
+        seller review system.
+        <br /><br />
+        <b>Languages:</b> TypeScript, SASS <br />
+        <b>Frameworks:</b> React, Node.js <br />
+        <b>Services: </b> AWS DynamoDB, Amazon S3, AWS Lambda, AWS API Gateway
+      </Typography>
+  },
+  {
+    image: SideTrackImage,
+    imageWidth: '70%',
+    itemName: 'SideTrack',
+    description: 'Pothole detection app with convolutional neural networks.',
+    fullDescription:
+      <Typography>
+        At LA Hacks 2020, my team of 4 people implemented an iOS Swift
+        application which warns users when they are driving over potholes. The
+        application is able to collect where the potholes are on the road based
+        on real time footage from the car. The recorded footage is then
+        compressed and sent to the server at the end of each trip for
+        classification using a CNN in TensorFlow. The classified pothole, along
+        with the geolocation at the time, is recorded for warning future users
+        who are driving along the same stretch of road.
+        <br /><br />
+        <b>Languages:</b> Python, Swift <br />
+        <b>Frameworks:</b> Flask, TensorFlow, Keras <br />
+        <b>Services: </b> GCP TPU, Google Cloud's Compute Engine
+      </Typography>
+  },
   {
     image: PaulUrlImage,
     imageWidth: '80%',
@@ -22,13 +62,12 @@ const items = [
         the database. Authentication to the back-end is handled by Java's
         Spring framework security.
         <br /><br />
-        <b>Languages:</b> Java, PostgreSQL, TypeScript, JavaScript, HTML, CSS
+        <b>Languages:</b> Java, PostgreSQL, TypeScript, JavaScript, HTML, CSS <br />
         <b>Frameworks and Tools:</b> Spring MVC, TravisCI
       </Typography>
-  }
-  ,
+  },
   {
-    image: containerizeImage,
+    image: ContainerizeImage,
     imageWidth: '70%',
     itemName: 'Containerize',
     description: 'Markdown note-taking web app with integrations',
@@ -47,81 +86,6 @@ const items = [
         <b>Languages:</b> TypeScript, JavaScript, HTML, CSS<br />
         <b>Frameworks:</b> React, Node.js, GraphQL<br />
         <b>Services:</b> AWS Amplify, AWS API Gateway, AWS Lambda, AWS DynamoDB
-      </Typography>
-  },
-  {
-    image: honeyImage,
-    imageWidth: '80%',
-    itemName: 'Honey4Groceries',
-    description: 'An app for obtaining the best grocery deals',
-    fullDescription:
-      <Typography>
-        I am part of a small project team that develops a grocery deals iOS
-        app.
-        <br /><br />
-        The app takes in a list of grocery items the user wants to buy along
-        with the location. Subsequently, users are informed of the best
-        locations to make the batch of purchases.
-        <br /><br />
-        <b>Languages:</b> Swift, Go<br />
-        <b>Frameworks:</b> PromiseKit, SwiftyJSON, Gorilla Mux<br />
-        <b>APIs:</b> Chomp API, Foursquare Places API
-      </Typography>
-  },
-  {
-    image: easyTourImage,
-    imageWidth: '100%',
-    itemName: 'Easy Tour',
-    description: 'LA Hacks 2019 travel suggestions app based on emotions',
-    fullDescription:
-      <Typography>
-        I was part of a team for LA Hacks 2019 that develops a web app of
-        providing users with travel itineraries based on human emotions.
-        <br /><br />
-        In order to implement the app, all the images of a certain location
-        are obtained from the Flickr API, which is then passed onto Google's
-        Natural Language API to determine the emotions that the pictures evoke.
-        Then, the itineraries are ranked based on the closeness to the user's
-        emotions, and the best itinerary is displayed on an animated map.
-        <br /><br />
-        <b>Languages:</b> HTML, CSS, JavaScript<br />
-        <b>Frameworks:</b> Chart.js, Node.js, jQuery<br />
-        <b>APIs:</b> Flickr API, Google Natural Language API, Mapbox API
-      </Typography>
-  },
-  {
-    image: solvingClimateChangeImage,
-    imageWidth: '100%',
-    itemName: 'Solving Climate Change Website',
-    description: 'Informative website regarding ways to tackle climate change',
-    fullDescription:
-      <Typography>
-        I designed a website to target an audience that may be aware of climate
-        change but are unable to decide what to do to alleviate it.
-        <br /><br />
-        Graphs and embedded video and Instagram links serve to captivate the
-        audience into reading more about the text on the website.
-        <br /><br />
-        <b>Languages:</b> HTML, CSS, JavaScript<br />
-        <b>Frameworks:</b> Chart.js
-      </Typography>
-  },
-  {
-    image: IEEEQPSP19Image,
-    imageWidth: '80%',
-    itemName: 'IEEE Quarterly Projects (Spring 2019)',
-    description: 'Home applications hardware and software project',
-    fullDescription:
-      <Typography>
-        I was in a team of three that designs a product which is meant to
-        improve households.
-        <br /><br />
-        For our project, we decided on an automatically unlocking door which
-        unlocks when the user swipes the correct ID on the RFID reader. The
-        door closes on detection of person being close enough into the room,
-        which is signaled an ultrasonic distance sensor.
-        <br /><br />
-        <b>Languages:</b> Arduino
       </Typography>
   }
 ];

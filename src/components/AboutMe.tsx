@@ -89,7 +89,8 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
         className={[classes.headerText, selfDescrClass].join(' ')}
         gutterBottom
       >
-        I develop full-stack web and mobile applications.
+        I have a deep understanding of full-stack web development, along with
+        interest in deep learning.
       </Typography>
       <Typography
         variant='h6'

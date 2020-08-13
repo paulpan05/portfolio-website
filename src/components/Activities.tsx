@@ -37,9 +37,10 @@ const items = [
     <Typography>
       As a technical committee member of IEEE at UC San Diego, I assisted with
       various workshops on different technical topics. Apart from my role as a
-      technical committee member, I was also a Quaterly Projects mentor. Being
-      a mentor allows me to gain experience managing many teams, which in turn
-      enhanced my social skills.
+      technical committee member, I was also a Quaterly Projects mentor. As a
+      mentor, I helped teams with their logistic planning of projects, and I
+      ensure that all of the projects of the 3 teams I mentor are done within
+      the time allowed before the final presentation. 
     </Typography>
   }
 ];
