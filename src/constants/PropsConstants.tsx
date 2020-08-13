@@ -11,6 +11,10 @@ export interface ProjectsProps {
   projectsRef: React.RefObject<HTMLDivElement>
 }
 
+export interface ActivitiesProps {
+  activitiesRef: React.RefObject<HTMLDivElement>
+}
+
 export interface EducationProps {
   educationRef: React.RefObject<HTMLDivElement>
 }
@@ -51,6 +55,7 @@ export interface TopBarProps {
   aboutMe: React.RefObject<HTMLDivElement>
   experience: React.RefObject<HTMLDivElement>
   projects: React.RefObject<HTMLDivElement>
+  activities: React.RefObject<HTMLDivElement>
   education: React.RefObject<HTMLDivElement>
   profile: React.RefObject<HTMLDivElement>
   contactMe: React.RefObject<HTMLDivElement>

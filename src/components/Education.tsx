@@ -119,6 +119,8 @@ const Education: React.FC<EducationProps> = (props) => {
                 <b>CSE 100</b> - Advanced Data Structures<br />
                 <b>CSE 101</b> - Design and Analysis of Algorithms<br />
                 <b>CSE 105</b> - Theory of Computability<br />
+                <b>CSE 110</b> - Software Engineering<br />
+                <b>CSE 190</b> - Machine Learning for Music and Audio<br />
             </Typography>
             </CardContent>
           </Card>

@@ -6,11 +6,13 @@ import Projects from './components/Projects';
 import Education from './components/Education';
 import ContactMe from './components/ContactMe';
 import { watchForHover } from './constants/FunctionConstants';
+import Activities from './components/Activities';
 
 const App: React.FC = () => {
   const aboutMeRef = React.useRef(null);
   const experienceRef = React.useRef(null);
   const projectsRef = React.useRef(null);
+  const activitiesRef = React.useRef(null);
   const educationRef = React.useRef(null);
   const profileRef = React.useRef(null);
   const contactMeRef = React.useRef(null);
@@ -31,6 +33,7 @@ const App: React.FC = () => {
         aboutMe={aboutMeRef}
         experience={experienceRef}
         projects={projectsRef}
+        activities={activitiesRef}
         education={educationRef}
         profile={profileRef}
         contactMe={contactMeRef}
@@ -44,6 +47,9 @@ const App: React.FC = () => {
       />
       <Projects
         projectsRef={projectsRef}
+      />
+      <Activities
+        activitiesRef={activitiesRef}
       />
       <Education
         educationRef={educationRef}

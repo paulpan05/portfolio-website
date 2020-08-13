@@ -49,6 +49,9 @@ const TopBar: React.FC<TopBarProps> = (props) => {
       case page.Projects:
         scrollToComponent(props.projects);
         break;
+      case page.Activities:
+        scrollToComponent(props.activities);
+        break;
       case page.Education:
         scrollToComponent(props.education);
         break;
@@ -66,6 +69,7 @@ const TopBar: React.FC<TopBarProps> = (props) => {
     'About Me',
     'Experience',
     'Projects',
+    'Activities',
     'Education',
     'Contact Me',
     'Resume'

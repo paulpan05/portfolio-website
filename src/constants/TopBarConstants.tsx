@@ -2,9 +2,10 @@ const page = {
   AboutMe: 0,
   Experience: 1,
   Projects: 2,
-  Education: 3,
-  ContactMe: 4,
-  Resume: 5
+  Activities: 3,
+  Education: 4,
+  ContactMe: 5,
+  Resume: 6
 }
 
 const topBarHeight = 65;
