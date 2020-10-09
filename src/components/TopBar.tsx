@@ -82,7 +82,7 @@ const TopBar: React.FC<TopBarProps> = (props) => {
         centered={smallScreen}
         variant={smallScreen ? undefined : 'scrollable'}
         scrollButtons={smallScreen ? undefined : 'on'}
-        textColor='white'
+        textColor={'white' as any}
       >
         { tabNames.map( (tabName, key) =>
           <Tab label={<span className={classes.tabLabel}>{tabName}</span>} className={classes.tab} key={key} />
