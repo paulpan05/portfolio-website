@@ -120,6 +120,10 @@ const Education: React.FC<EducationProps> = (props) => {
                 <b>CSE 101</b> - Design and Analysis of Algorithms<br />
                 <b>CSE 105</b> - Theory of Computability<br />
                 <b>CSE 110</b> - Software Engineering<br />
+                <b>CSE 120</b> - Principles of Computer Operating Systems<br />
+                <b>CSE 130</b> - Programming Languages: Principles and Paradigms<br />
+                <b>CSE 140</b> - Components and Design Techniques for Digital Systems<br />
+                <b>CSE 140L</b> - Digital Systems Laboratory<br />
                 <b>CSE 190</b> - Machine Learning for Music and Audio<br />
             </Typography>
             </CardContent>

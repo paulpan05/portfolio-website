@@ -1,11 +1,25 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import awsImage from '../images/Amazon_Web_Services.svg';
 import lillyImage from '../images/Eli_Lilly_and_Company.svg';
 import myzeImage from '../images/Myze.svg';
 import CardSection from './CardSection';
 import { ExperienceProps } from '../constants/PropsConstants';
 
 const items = [
+  {
+    image: awsImage,
+    imageWidth: '40%',
+    itemName: 'Amazon Web Services (AWS)',
+    description: 'Software Development Engineer Intern (Summer 2021)',
+    fullDescription:
+    <Typography>
+      Working on Identity Access Management (IAM) team of AWS.<br /><br />
+      <b>Languages:</b> Ruby, Java<br />
+      <b>Frameworks:</b> Ruby on Rails, Guice, and others<br />
+      <b>Tools:</b> AWS CloudFormation, Amazon RDS, Amazon S3, and others<br />
+    </Typography>
+  },
   {
     image: lillyImage,
     imageWidth: '40%',
@@ -36,7 +50,7 @@ const items = [
     image: myzeImage,
     imageWidth: '30%',
     itemName: 'Myze',
-    description: 'Software Engineer (Winter 2020 - Present)',
+    description: 'Software Engineer (Feb 2020 - Dec 2020)',
     fullDescription:
     <Typography>
       As a software engineer at a rising startup from my university, I am
